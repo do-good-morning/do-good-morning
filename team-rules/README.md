@@ -28,6 +28,8 @@
 type : subject
 ```
 
+> 예시) Feat : 로그인 기능 구현
+
 ### 2. Commit Type
 
 |   Type   |                내용                |
@@ -46,6 +48,18 @@ type : subject
 <div id="2"></div>
 
 ## :pager: Front-end Rules
+
+## Version
+
+|  목록   |  버전   |
+| :-----: | :-----: |
+|   npm   | 6.14.14 |
+| node.js | 14.17.4 |
+
+## Code Formatting
+
+- **Prettier** default 값으로 통일
+- 탭 공백 2칸으로 수정
 
 <br />
 
