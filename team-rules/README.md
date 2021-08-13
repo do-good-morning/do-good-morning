@@ -54,7 +54,7 @@ type : subject
 |  목록   |  버전   |
 | :-----: | :-----: |
 |   npm   | 6.14.14 |
-| node.js | 14.17.4 |
+| node.js | 14.17.5 |
 
 ## Code Formatting
 
