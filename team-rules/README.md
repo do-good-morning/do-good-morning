@@ -14,7 +14,7 @@
 
 ## :octocat: Git Rules
 
-&nbsp;&nbsp;깃에 파일을 커밋 전에 꼭 `git status` 명령어를 통해 커밋하길 원하는 파일들만 staging area로 넘어가는 것인지 꼭 확인하고 커밋 해주세요.
+&nbsp;&nbsp;깃에 파일을 커밋 전에 꼭 `git status` 명령어를 통해 커밋하길 원하는 파일들만 `Staging area`로 넘어가는 것인지 꼭 확인하고 커밋 해주세요.
 
 > 깃에 지속적으로 커밋을 제외하고 싶은 파일이나 폴더가 있다면 `.gitignore` 파일에 추가 시켜주세요.
 
