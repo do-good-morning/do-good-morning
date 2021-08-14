@@ -1,6 +1,9 @@
 /* REACT */
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { Link, useHistory } from "react-router-dom";
+
+/* AXIOS */
+import axios from "axios";
 
 /* ANT-DESIGN */
 import {
@@ -21,17 +24,138 @@ import "swiper/components/navigation/navigation.min.css";
 
 /* COMPONENTS */
 import Posting from "./Posting";
+import Auth from "../auth/Auth";
+import { DoGoodMorningContext } from "../App";
 
 /* CSS */
 import "./css/PostingSection.css";
-// import "components/controller/controller.min.css";
 
 SwiperCore.use([Navigation]);
 
 const PostingSection = ({ moveSectionDown }) => {
+  // const [isModalVisible, setIsModalVisible] = useState(false);
+  const { formState, setFormState } = useContext(DoGoodMorningContext);
+  const { isLoggedIn } = useContext(DoGoodMorningContext);
+  // const history = useHistory();
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("Content of the modal");
+
+  /* 로그인 state */
+  const [emailSI, setEmailSI] = useState("");
+  const [passwordSI, setPasswordSI] = useState("");
+
+  /* 회원가입 state */
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
+
+  const api =
+    "http://ec2-3-35-206-232.ap-northeast-2.compute.amazonaws.com:5000";
+
+  // SIGN 입력 핸들러
+  const onChangeHandler = (event) => {
+    console.log(event);
+    const {
+      target: { name, value },
+    } = event;
+
+    if (name === "email") {
+      console.log(value);
+      setEmail(value);
+    } else if (name === "nickname") {
+      setNickname(value);
+    } else if (name === "password") {
+      setPassword(value);
+    } else if (name === "passwordCheck") {
+      setPasswordCheck(value);
+    } else if (name === "emailSI") {
+      setEmailSI(value);
+    } else if (name === "passwordSI") {
+      setPasswordSI(value);
+    }
+  };
+
+  // 회원가입 버튼 핸들러
+  const onSignUpHandler = (event) => {
+    event.preventDefault();
+
+    if (!email || !nickname || !password || !passwordCheck) {
+      alert("회원가입 폼을 입력해주세요");
+    } else if (!password === passwordCheck) {
+      alert("비밀번호가 일치하지 않습니다.");
+    } else if (password.length >= 8) {
+      axios
+        .post(`${api}/sign-up`, {
+          Email: email,
+          Nickname: nickname,
+          Password: password,
+          CheckPassword: passwordCheck,
+          withCredentials: true,
+        })
+        .then((response) => {
+          console.log(response);
+
+          if (response.status === 200) {
+            setFormState("loggedin");
+            alert("회원가입 성공!");
+            localStorage.setItem("jwt", response.data.AccessToken);
+            localStorage.setItem("nickname", response.data.Nickname);
+            window.location.replace("/");
+          } else {
+            console.log(response.data);
+          }
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+    } else {
+      alert("비밀번호는 8자이상, 숫자+영어 조합으로 입력해주세요.");
+    }
+  };
+
+  // 로그인 버튼 핸들러
+  const onSignInHandler = (event) => {
+    console.log(`email${emailSI}`);
+    console.log(`pwd${passwordSI}`);
+
+    event.preventDefault();
+
+    if (!emailSI || !passwordSI) {
+      alert("로그인 폼을 입력해주세요");
+    } else {
+      axios
+        .post(`${api}/sign-in`, {
+          Email: emailSI,
+          Password: passwordSI,
+          withCredentials: true,
+        })
+        .then((response) => {
+          if (response.status === 200) {
+            localStorage.setItem("jwt", response.data.AccessToken);
+            localStorage.setItem("nickname", response.data.Nickname);
+
+            setNickname(response.data.Nickname);
+            setFormState("loggedin");
+            alert("로그인 성공!");
+
+            window.location.replace("/");
+          } else {
+            alert("error");
+          }
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+    }
+  };
+
+  useEffect(() => {
+    if (formState === "loggedin") {
+      setVisible(false);
+    }
+  }, [formState]);
 
   /* MODAL 핸들러 */
   const showModal = () => {
@@ -52,13 +176,13 @@ const PostingSection = ({ moveSectionDown }) => {
     setVisible(false);
   };
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
+  // const onFinish = (values) => {
+  //   console.log("Success:", values);
+  // };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  // const onFinishFailed = (errorInfo) => {
+  //   console.log("Failed:", errorInfo);
+  // };
 
   return (
     <>
@@ -73,9 +197,16 @@ const PostingSection = ({ moveSectionDown }) => {
         {/* 로그인 버튼 */}
         <div className="sign-btn">
           <span onClick={showModal}>
-            <LoginOutlined className="sign__icons" />
+            {isLoggedIn ? (
+              <>
+                <UserOutlined className="sign__icons" />
+              </>
+            ) : (
+              <>
+                <LoginOutlined className="sign__icons" />
+              </>
+            )}
           </span>
-          {/* <UserOutlined className="sign__icons" /> */}
         </div>
 
         {/* 포스팅 SWIPER */}
@@ -133,14 +264,12 @@ const PostingSection = ({ moveSectionDown }) => {
                 initialValues={{
                   remember: true,
                 }}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
                 className="signin__form"
               >
                 <h2 className="signin__title">로그인</h2>
                 <Form.Item
                   label="이메일"
-                  name="username"
+                  name="emailSI"
                   rules={[
                     {
                       required: true,
@@ -148,12 +277,16 @@ const PostingSection = ({ moveSectionDown }) => {
                     },
                   ]}
                 >
-                  <Input className="sign-input" />
+                  <Input
+                    className="sign-input"
+                    name="emailSI"
+                    onChange={onChangeHandler}
+                  />
                 </Form.Item>
 
                 <Form.Item
                   label="비밀번호"
-                  name="password"
+                  name="passwordSI"
                   rules={[
                     {
                       required: true,
@@ -161,7 +294,11 @@ const PostingSection = ({ moveSectionDown }) => {
                     },
                   ]}
                 >
-                  <Input.Password className="sign-input" />
+                  <Input.Password
+                    name="passwordSI"
+                    className="sign-input"
+                    onChange={onChangeHandler}
+                  />
                 </Form.Item>
 
                 <Form.Item
@@ -174,6 +311,10 @@ const PostingSection = ({ moveSectionDown }) => {
                     type="primary"
                     htmlType="submit"
                     className="signin-btn-submit"
+                    onClick={(e) => {
+                      console.log("로그인 버튼 클릭");
+                      onSignInHandler(e);
+                    }}
                   >
                     로그인
                   </Button>
@@ -198,14 +339,12 @@ const PostingSection = ({ moveSectionDown }) => {
                 initialValues={{
                   remember: true,
                 }}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
                 className="signup__form"
               >
                 <h2 className="signin__title">회원가입</h2>
                 <Form.Item
                   label="이메일"
-                  name="email_signup"
+                  name="email"
                   rules={[
                     {
                       required: true,
@@ -213,12 +352,16 @@ const PostingSection = ({ moveSectionDown }) => {
                     },
                   ]}
                 >
-                  <Input className="sign-input" />
+                  <Input
+                    name="email"
+                    className="sign-input"
+                    onChange={onChangeHandler}
+                  />
                 </Form.Item>
 
                 <Form.Item
                   label="닉네임"
-                  name="nickName_signup"
+                  name="nickname"
                   rules={[
                     {
                       required: true,
@@ -226,12 +369,16 @@ const PostingSection = ({ moveSectionDown }) => {
                     },
                   ]}
                 >
-                  <Input className="sign-input" />
+                  <Input
+                    name="nickname"
+                    className="sign-input"
+                    onChange={onChangeHandler}
+                  />
                 </Form.Item>
 
                 <Form.Item
                   label="비밀번호"
-                  name="password_signup"
+                  name="password"
                   rules={[
                     {
                       required: true,
@@ -239,12 +386,16 @@ const PostingSection = ({ moveSectionDown }) => {
                     },
                   ]}
                 >
-                  <Input.Password className="sign-input" />
+                  <Input.Password
+                    name="password"
+                    className="sign-input"
+                    onChange={onChangeHandler}
+                  />
                 </Form.Item>
 
                 <Form.Item
                   label="비밀번호 재확인"
-                  name="passwordCheck_signup"
+                  name="passwordCheck"
                   rules={[
                     {
                       required: true,
@@ -252,7 +403,11 @@ const PostingSection = ({ moveSectionDown }) => {
                     },
                   ]}
                 >
-                  <Input.Password className="sign-input" />
+                  <Input.Password
+                    name="passwordCheck"
+                    className="sign-input"
+                    onChange={onChangeHandler}
+                  />
                 </Form.Item>
 
                 <Form.Item
@@ -263,8 +418,8 @@ const PostingSection = ({ moveSectionDown }) => {
                 >
                   <Button
                     type="primary"
-                    htmlType="submit"
                     className="signup-btn-submit"
+                    onClick={onSignUpHandler}
                   >
                     회원가입
                   </Button>
