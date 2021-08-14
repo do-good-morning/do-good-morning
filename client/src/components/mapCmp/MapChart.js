@@ -1,8 +1,7 @@
-import React, { memo, useEffect, useContext } from "react";
+import React, { memo, useContext } from "react";
 import { DoGoodMorningContext } from "../App";
 import {
   ComposableMap,
-  ZoomableGroup,
   Geographies,
   Geography,
   Marker,
@@ -14,9 +13,8 @@ var date = new Date(timestamp);
 
 console.log("Date: " + date.getHours() + ":" + date.getMinutes());
 
-function MapChart() {
-  const { selectedCountry, setSelectedCountry } =
-    useContext(DoGoodMorningContext);
+function MapChart({ moveSectionDown }) {
+  const { setSelectedCountry } = useContext(DoGoodMorningContext);
 
   const geoUrl =
     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
@@ -92,6 +90,7 @@ function MapChart() {
 
   const handleOnClick = (country) => {
     const clickCountry = country;
+    moveSectionDown();
     setSelectedCountry(clickCountry);
   };
 
@@ -101,7 +100,7 @@ function MapChart() {
         <ComposableMap
           className="composableMap"
           projection="geoEquirectangular"
-          projectionConfig={{ scale: 185 }}
+          projectionConfig={{ scale: 190 }}
         >
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
@@ -109,7 +108,7 @@ function MapChart() {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  onClick={() => handleOnClick(geo.properties["NAME"])}
+                  onClick={handleOnClick}
                   style={{
                     default: {
                       fill: "lightgray",

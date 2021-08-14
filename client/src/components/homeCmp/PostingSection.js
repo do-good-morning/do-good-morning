@@ -53,6 +53,8 @@ const PostingSection = ({ moveSectionDown }) => {
 
   /* 포스팅 state */
   const [imageList, setImageList] = useState([]);
+  const [swipingImageList, setSwipingImageList] = useState([]);
+
   const api = process.env.REACT_APP_API_URL;
 
   // SIGN 입력 핸들러
@@ -185,25 +187,33 @@ const PostingSection = ({ moveSectionDown }) => {
   //   console.log("Failed:", errorInfo);
   // };
 
-  // 포스팅
+  // 포스팅 섹션
   useEffect(() => {
-    console.log("get image");
-
-    function GetPostingImages() {
+    (async function GetPostingImages() {
       axios.get(`${api}/landing`).then((response) => {
         setImageList(response.data.images);
+        console.log(response.data.images);
       });
-    }
-    GetPostingImages();
+      return;
+    })();
   }, []);
 
-  // const PostingSwiper = imageList.map(({ data }) =>
-  //   console.log(data)
-  //   // <SwiperSlide>
-  //   //   <Posting data={data} />
-  //   // </SwiperSlide>
-  // );
-  console.log(imageList);
+  useEffect(() => {
+    if (imageList.length) {
+      setSwipingImageList(
+        imageList.map((data) => (
+          <div>
+            <SwiperSlide>
+              <Posting data={data} />
+            </SwiperSlide>
+          </div>
+        ))
+      );
+    } else {
+      setSwipingImageList(<div></div>);
+    }
+  }, [imageList]);
+
   return (
     <>
       <div className="section posting-section">
@@ -231,10 +241,7 @@ const PostingSection = ({ moveSectionDown }) => {
 
         {/* 포스팅 SWIPER */}
         <Swiper navigation={true} className="mySwiper">
-          <SwiperSlide>
-            <Posting />
-          </SwiperSlide>
-          {/* <PostingSwiper /> */}
+          {swipingImageList}
         </Swiper>
 
         {/* 스크롤 버튼 */}
