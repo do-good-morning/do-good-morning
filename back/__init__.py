@@ -27,14 +27,13 @@ def create_app():
     CORS(app, supports_credentials=True)
     # 블루프린트
 # --------------------------------------------------------------------------- #
-    from .views import auth, landing, upload, like, image, rank, hover_map, main_map
+    from .views import auth, landing, upload, like, image, rank, main_map
     app.register_blueprint(auth.bp)
     app.register_blueprint(landing.bp)
     app.register_blueprint(upload.bp)
     app.register_blueprint(like.bp)
     app.register_blueprint(image.bp)
     app.register_blueprint(rank.bp)
-    app.register_blueprint(hover_map.bp)
     app.register_blueprint(main_map.bp)
 
 

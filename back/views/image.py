@@ -20,28 +20,49 @@ def main_image():
         
         image_country = body['ImageCountry']
         image_city = body['ImageCity']
-        pick_num = body['PickNum']
 
-        top_image = models.db.session.query(models.Image)\
-                    .filter(models.Image.image_country == image_country, models.Image.image_city == image_city)\
-                    .order_by(models.Image.count_like.desc()).limit(6).all()
-        count_images = models.db.session.query(models.Image)\
-                    .filter(models.Image.image_country == image_country, models.Image.image_city == image_city)\
-                    .count()
-        images = []
-        
+        if image_country == '' and image_city == '':
+            top_images = models.db.session.query(models.Image)\
+                        .order_by(models.Image.count_like.desc()).limit(6).all()
 
+            images = []
+            
+            for i in top_images:
+                user = models.User.query.filter_by(id = i.user_id).first()
+                image = {
+                    'Nickname' : user.nickname,
+                    'ImageData' : i.image_data,
+                    'ImageCountry' : i.image_country,
+                    'ImageCity' : i.image_city,
+                    'ImageId' : i.id,
+                    'ImageUploadTime' : i.image_upload_time,
+                    'ImageDescription' : i.image_description,
+                    'Like' : i.count_like
+                }
+                images.append(image)
+            return {'Images' : images}, 200
         
-        for i in top_image:
-            image = {
-                'ImageData' : i.image_data,
-                'ImageCountry' : i.image_country,
-                'ImageCity' : i.image_city,
-                'ImageId' : i.id,
-                'ImageUploadTime' : i.image_upload_time,
-                'ImageDescription' : i.image_description,
-                'CountImages' : count_images,
-                'Like' : i.count_like
-            }
-            images.append(image)
-        return {'Images' : images, 'PickImage' : images[pick_num]}, 200
+        else:
+            top_images = models.db.session.query(models.Image)\
+                        .filter(models.Image.image_country == image_country)\
+                        .order_by(models.Image.count_like.desc()).limit(6).all()
+            count_images = models.db.session.query(models.Image)\
+                        .filter(models.Image.image_country == image_country)\
+                        .count()
+            images = []
+            
+            for i in top_images:
+                user = models.User.query.filter_by(id = i.user_id).first()
+                image = {
+                    'Nickname' : user.nickname,
+                    'ImageData' : i.image_data,
+                    'ImageCountry' : i.image_country,
+                    'ImageCity' : i.image_city,
+                    'ImageId' : i.id,
+                    'ImageUploadTime' : i.image_upload_time,
+                    'ImageDescription' : i.image_description,
+                    'CountImages' : count_images,
+                    'Like' : i.count_like
+                }
+                images.append(image)
+            return {'Images' : images}, 200
