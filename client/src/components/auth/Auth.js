@@ -50,10 +50,6 @@ function SignUp() {
           if (response.status === 200) {
             setFormState("loggedin");
             alert("회원가입 성공!");
-            setEmail("");
-            setNickname("");
-            setPassword("");
-            setPasswordCheck("");
             localStorage.setItem("jwt", response.data.AccessToken);
             localStorage.setItem("nickname", response.data.Nickname);
             window.location.replace("/");
@@ -85,8 +81,6 @@ function SignUp() {
             localStorage.setItem("jwt", response.data.AccessToken);
             localStorage.setItem("nickname", response.data.Nickname);
             setNickname(response.data.Nickname);
-            setEmail("");
-            setPassword("");
             setFormState("loggedin");
             alert("로그인 성공!");
             window.location.replace("/");
@@ -122,7 +116,15 @@ function SignUp() {
           <span>아이디가 없으신가요?</span>
         </div>
       </form>
-      <button onClick={() => setFormState("sign-up")}>회원가입</button>
+      <button
+        onClick={() => {
+          setEmail("");
+          setPassword("");
+          setFormState("sign-up");
+        }}
+      >
+        회원가입
+      </button>
     </>
   );
 
@@ -159,7 +161,17 @@ function SignUp() {
         />
         <button onClick={onSignUpHandler}>회원가입</button>
       </form>
-      <button onClick={() => setFormState("login")}>로그인</button>
+      <button
+        onClick={() => {
+          setEmail("");
+          setNickname("");
+          setPassword("");
+          setPasswordCheck("");
+          setFormState("login");
+        }}
+      >
+        로그인
+      </button>
     </>
   );
 
