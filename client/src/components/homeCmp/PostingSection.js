@@ -51,6 +51,8 @@ const PostingSection = ({ moveSectionDown }) => {
   const [nickname, setNickname] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
 
+  /* 포스팅 state */
+  const [imageList, setImageList] = useState([]);
   const api =
     "http://ec2-3-35-206-232.ap-northeast-2.compute.amazonaws.com:5000";
 
@@ -184,6 +186,26 @@ const PostingSection = ({ moveSectionDown }) => {
   //   console.log("Failed:", errorInfo);
   // };
 
+  // 포스팅
+  useEffect(() => {
+    console.log("get image");
+
+    function GetPostingImages() {
+      axios
+        .get(
+          "http://ec2-3-35-206-232.ap-northeast-2.compute.amazonaws.com:5000/landing"
+        )
+        .then((response) => {
+          setImageList(response.data.images);
+
+          console.log("axios", response.data.images);
+        });
+    }
+    GetPostingImages();
+  }, []);
+
+  const PostingSwiper = imageList.map(({ data }) => console.log(data));
+
   return (
     <>
       <div className="section posting-section">
@@ -211,12 +233,6 @@ const PostingSection = ({ moveSectionDown }) => {
 
         {/* 포스팅 SWIPER */}
         <Swiper navigation={true} className="mySwiper">
-          <SwiperSlide>
-            <Posting />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Posting />
-          </SwiperSlide>
           <SwiperSlide>
             <Posting />
           </SwiperSlide>
