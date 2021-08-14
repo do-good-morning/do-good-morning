@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import HomeTmp from "../pages/HomeTmp";
 import Home from "../pages/Home";
 import Map from "../pages/Map";
 import Images from "../pages/Images";
