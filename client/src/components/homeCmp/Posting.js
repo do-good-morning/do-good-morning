@@ -34,7 +34,7 @@ const Posting = () => {
           <hr />
           <span>08:14AM EST</span>
           <span>뉴욕, 미국</span>
-          <span>오늘 아침은 땅콩버터로-.</span>
+          <span>오늘 아침은 땅콩버터로</span>
         </div>
       </div>
     </>

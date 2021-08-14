@@ -1,0 +1,46 @@
+/* GROUP POSTINGS */
+.groupPostings-section .groupPosting__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+  margin: 0 auto;
+}
+.groupPosting__inner div {
+  display: inline-block;
+}
+
+/* SUB POSTING GROUP */
+.sub-posting__group {
+  margin-left: 10px;
+  height: 500px;
+}
+.sub-posting__group .sub-posting {
+  width: 240px;
+  height: 240px;
+  box-sizing: border-box;
+  background-color: yellow;
+}
+.sub-posting__group .group-line1,
+.sub-posting__group .group-line2 {
+  height: 240px;
+}
+.sub-posting__group .group-line1,
+.sub-posting__group .group-line2 div {
+  display: inline-block;
+}
+.sub-posting__group .group-line1 {
+  margin-bottom: 20px;
+}
+.sub-posting__group .group-line1 .sub-posting:nth-child(1) {
+  margin-right: 10px;
+}
+.sub-posting__group .group-line1 .sub-posting:nth-child(2) {
+  margin-left: 10px;
+}
+.sub-posting__group .group-line2 .sub-posting:nth-child(1) {
+  margin-right: 10px;
+}
+.sub-posting__group .group-line2 .sub-posting:nth-child(2) {
+  margin-left: 10px;
+}
