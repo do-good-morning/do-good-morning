@@ -7,7 +7,6 @@
 }
 
 /* SIGNIN FORM */
-.signin__form,
 .signup__form {
   width: 450px;
   float: left;
@@ -76,4 +75,3 @@
 .signup-btn-submit:hover {
   background-color: var(--color-orange);
 }
-/* 91d5ff */
