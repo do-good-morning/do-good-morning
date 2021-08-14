@@ -24,7 +24,7 @@ const HomeTmp = () => (
             moveSectionDown={() => fullpageApi.moveSectionDown()}
           />
           {/* SECTION 2 : 지도 섹션 */}
-          <Map />
+          <Map moveSectionDown={() => fullpageApi.moveSectionDown()} />
           {/* SECTION 3 : 포스팅 그룹 섹션 */}
           <GroupPostings />
         </ReactFullpage.Wrapper>
