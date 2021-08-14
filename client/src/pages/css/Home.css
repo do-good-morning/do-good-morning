@@ -1,16 +1,16 @@
 /* POSTING-SECTION */
 
-/* POSING-SECTION LOGO */
-.posting-section .logo {
-  position: absolute;
+/* LOGO */
+.logo {
+  position: fixed;
   top: 0;
   z-index: 2;
   padding: 50px 45px;
 }
-.posting-section .logo a {
+.logo a {
   text-decoration: none;
 }
-.posting-section .logo a span {
+.logo a span {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@
 }
 
 /* POSING-SECTION SIGN BUTTON */
-.posting-section .sign-btn {
+.sign-btn {
   position: absolute;
   box-sizing: border-box;
   top: 0;
@@ -31,7 +31,7 @@
   height: 10%;
   padding: 50px 45px;
 }
-.posting-section .sign-btn .sign__icons {
+.sign-btn .sign__icons {
   display: block;
   margin-top: 0;
   margin-bottom: 55px;
@@ -40,7 +40,7 @@
   cursor: pointer;
   transition: all 0.2s;
 }
-.posting-section .sign-btn .sign__icons:hover {
+.sign-btn .sign__icons:hover {
   color: var(--color-white);
   transform: scale(1.2);
 }
@@ -112,7 +112,7 @@
 }
 
 /* POSING-SECTION SUBMIT */
-.posting-section .posting__submit {
+.posting__submit {
   position: absolute;
   bottom: 0;
   right: 0;

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import HomeTmp from "../pages/HomeTmp";
 import Home from "../pages/Home";
 import Map from "../pages/Map";
 import Images from "../pages/Images";
@@ -28,7 +27,7 @@ const AppRouter = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={HomeTmp} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/profile">
           <Profile userObj={userObj} />
         </Route>
