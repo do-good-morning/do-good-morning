@@ -40,5 +40,23 @@
 }
 
 .map {
-  background-color: blue;
+  background-color: red;
+  z-index: 1;
+}
+.mapChart {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+.timeLine {
+  z-index: 0;
+  opacity: 0.8;
+  transform: translate(20vw);
+  width: 30%;
+  height: 100%;
+  background: rgb(238, 222, 207);
+  position: absolute;
+  left: 0;
+  top: 0;
 }

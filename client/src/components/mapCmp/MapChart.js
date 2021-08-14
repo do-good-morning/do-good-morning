@@ -97,38 +97,44 @@ function MapChart({ moveSectionDown }) {
   return (
     <>
       <div className="background">
-        <ComposableMap
-          className="composableMap"
-          projection="geoEquirectangular"
-          projectionConfig={{ scale: 190 }}
-        >
-          <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map((geo) => (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  onClick={handleOnClick}
-                  style={{
-                    default: {
-                      fill: "lightgray",
-                      outline: "none",
-                    },
-                    hover: {
-                      fill: "#F53",
-                      outline: "none",
-                    },
-                    pressed: {
-                      fill: "#E42",
-                      outline: "none",
-                    },
-                  }}
-                />
-              ))
-            }
-          </Geographies>
-          {mapMarker}
-        </ComposableMap>
+        <div
+          className="timeLine"
+          style={{ transform: `translate(30vw)` }}
+        ></div>
+        <div>
+          <ComposableMap
+            className="composableMap"
+            projection="geoEquirectangular"
+            projectionConfig={{ scale: 190 }}
+          >
+            <Geographies geography={geoUrl}>
+              {({ geographies }) =>
+                geographies.map((geo) => (
+                  <Geography
+                    key={geo.rsmKey}
+                    geography={geo}
+                    onClick={handleOnClick}
+                    style={{
+                      default: {
+                        fill: "rgba(178,178,178)",
+                        outline: "none",
+                      },
+                      hover: {
+                        fill: "#F53",
+                        outline: "none",
+                      },
+                      pressed: {
+                        fill: "#E42",
+                        outline: "none",
+                      },
+                    }}
+                  />
+                ))
+              }
+            </Geographies>
+            {mapMarker}
+          </ComposableMap>
+        </div>
       </div>
     </>
   );
