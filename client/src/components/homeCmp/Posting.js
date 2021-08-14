@@ -13,9 +13,9 @@ import "./css/Posting.css";
 
 const Posting = ({ data }) => {
   if (data) {
-    console.log(data);
+    // console.log(data);
     const imageUrl = process.env.REACT_APP_API_URL + "/img/" + data.ImageData;
-    console.log(imageUrl);
+    // console.log(imageUrl);
     return (
       <>
         {/* 포스팅 카드 */}

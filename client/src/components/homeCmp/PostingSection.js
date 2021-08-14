@@ -28,7 +28,7 @@ const PostingSection = ({ moveSectionDown }) => {
     (async function GetPostingImages() {
       axios.get(`${api}/landing`).then((response) => {
         setImageList(response.data.images);
-        console.log(response.data.images);
+        // console.log(response.data.images);
       });
 
       return;
@@ -39,7 +39,7 @@ const PostingSection = ({ moveSectionDown }) => {
     if (imageList.length) {
       setSwipingImageList(
         imageList.map((data) => (
-          <div>
+          <div key={data.imageId}>
             <SwiperSlide>
               <Posting data={data} />
             </SwiperSlide>
