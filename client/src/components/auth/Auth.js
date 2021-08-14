@@ -8,7 +8,6 @@ function SignUp() {
   const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
-  const [blank, setBlank] = useState(false);
   const { formState, setFormState } = useContext(DoGoodMorningContext);
   const api =
     "http://ec2-3-35-206-232.ap-northeast-2.compute.amazonaws.com:5000";
@@ -33,7 +32,11 @@ function SignUp() {
   // 회원가입 버튼 핸들러
   const onSignUpHandler = (event) => {
     event.preventDefault();
-    if (password.length >= 8 && password === passwordCheck) {
+    if (!email || !nickname || !password || !passwordCheck) {
+      alert("회원가입 폼을 입력해주세요");
+    } else if (!password === passwordCheck) {
+      alert("비밀번호가 일치하지 않습니다.");
+    } else if (password.length >= 8) {
       axios
         .post(`${api}/sign-up`, {
           Email: email,
@@ -45,10 +48,15 @@ function SignUp() {
         .then((response) => {
           console.log(response);
           if (response.status === 200) {
-            setFormState("login");
+            setFormState("loggedin");
             alert("회원가입 성공!");
+            setEmail("");
+            setNickname("");
+            setPassword("");
+            setPasswordCheck("");
             localStorage.setItem("jwt", response.data.AccessToken);
             localStorage.setItem("nickname", response.data.Nickname);
+            window.location.replace("/");
           } else {
             console.log(response.data);
           }
@@ -63,7 +71,7 @@ function SignUp() {
   const onSignInHandler = (event) => {
     event.preventDefault();
     if (!email || !password) {
-      setBlank(true);
+      alert("로그인 폼을 입력해주세요");
     } else {
       axios
         .post(`${api}/sign-in`, {
@@ -77,8 +85,11 @@ function SignUp() {
             localStorage.setItem("jwt", response.data.AccessToken);
             localStorage.setItem("nickname", response.data.Nickname);
             setNickname(response.data.Nickname);
+            setEmail("");
+            setPassword("");
             setFormState("loggedin");
             alert("로그인 성공!");
+            window.location.replace("/");
           } else {
             alert("error");
           }
