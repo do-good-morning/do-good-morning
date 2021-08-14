@@ -1,10 +1,14 @@
 import React from "react";
 import MapChart from "../components/mapCmp/MapChart";
-const Map = () => {
+const Map = ({ moveSectionDown }) => {
   return (
     <>
-      <div className="map">
-        <MapChart />
+      <div className="section group-section">
+        <div className="map">
+          <div className="mapChart">
+            <MapChart moveSectionDown={moveSectionDown} />
+          </div>
+        </div>
       </div>
     </>
   );

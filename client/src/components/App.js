@@ -6,7 +6,7 @@ import "./App.css";
 const DoGoodMorningContext = createContext({});
 
 function App() {
-  const [selectedCountry, setSelectedCountry] = useState("all");
+  const [selectedCountry, setSelectedCountry] = useState("");
   const [formState, setFormState] = useState("login");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 

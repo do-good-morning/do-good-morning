@@ -6,6 +6,11 @@
   margin-right: 10px;
   font-family: "NanumSquareRound", sans-serif;
   color: var(--color-white);
+  overflow: hidden;
+}
+.image-sm:hover {
+  transition: all 0.5s linear;
+  transform: scale(1.2);
 }
 .sub-posting .sub-posting__title {
   position: absolute;

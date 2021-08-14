@@ -11,9 +11,9 @@ import {
 /* CSS */
 import "./css/Posting.css";
 
-const Posting = (data) => {
+const Postingtemp = (data) => {
   const imageUrl = `${process.env.REACT_APP_API_URL}/img/` + data.ImageCity;
-
+  console.log(imageUrl);
   return (
     <>
       {/* 포스팅 카드 */}
