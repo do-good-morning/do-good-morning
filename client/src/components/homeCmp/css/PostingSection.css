@@ -1,34 +1,34 @@
+/* POSTING SECTION */
 .posting-section .ant-modal {
   background-color: gray;
 }
-
 .posting-section .ant-modal-root .ant-modal .ant-modal-content {
   background-color: gray;
 }
 
+/* SIGNIN FORM */
 .signin__form {
-  /* width: 400px; */
-  /* margin: 0 auto; */
+  width: 400px;
+  margin: 0 auto;
 }
-
 .signin__title {
   margin: 0 0 30px 15px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   font-size: 24px;
   font-weight: 700;
   font-family: "NanumSquareRound", sans-serif;
+  text-align: center;
   color: var(--color-light-black);
 }
-
 .signin-btn-submit {
-  width: 240px;
-  margin: 20px auto 0;
+  width: 266.66px;
+  height: 34px;
+  margin: 12px auto 0;
   border: none;
   background-color: var(--color-gray);
   font-family: "NanumSquareRound", sans-serif;
   color: var(--color-white);
 }
-
 .signin-btns {
   border: none;
   background-color: transparent;
@@ -36,7 +36,9 @@
   text-decoration: none;
   color: var(--color-gray);
 }
-
+.signin-btns:nth-child(1) {
+  margin-left: 12px;
+}
 .bar {
   margin: 0 7px;
 }

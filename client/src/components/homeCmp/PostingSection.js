@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-/* FULL PAGE */
-import ReactFullpage from "@fullpage/react-fullpage";
-
 /* ANT-DESIGN */
-import { LoginOutlined, UserOutlined } from "@ant-design/icons";
-import { Modal, Form, Input, Button, Checkbox, AutoComplete } from "antd";
-
+import { LoginOutlined } from "@ant-design/icons";
+import { Modal, Form, Input, Button } from "antd";
 import "antd/dist/antd.css";
 
 /* SWIPER */
@@ -28,6 +24,7 @@ const PostingSection = ({ moveSectionDown }) => {
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("Content of the modal");
 
+  /* MODAL 핸들러 */
   const showModal = () => {
     setVisible(true);
   };
@@ -57,17 +54,22 @@ const PostingSection = ({ moveSectionDown }) => {
   return (
     <>
       <div className="section posting-section">
+        {/* 두굿모닝 로고 */}
         <div className="logo">
           <a href="/">
             <span>DoGoodMorning</span>
           </a>
         </div>
+
+        {/* 로그인 버튼 */}
         <div className="sign-btn">
           <span onClick={showModal}>
             <LoginOutlined className="sign__icons" />
           </span>
           {/* <UserOutlined className="sign__icons" /> */}
         </div>
+
+        {/* 포스팅 SWIPER */}
         <Swiper navigation={true} className="mySwiper">
           <SwiperSlide>
             <Posting />
@@ -79,6 +81,8 @@ const PostingSection = ({ moveSectionDown }) => {
             <Posting />
           </SwiperSlide>
         </Swiper>
+
+        {/* 스크롤 버튼 */}
         <div className="scroll-btn">
           <button onClick={moveSectionDown}>
             <img src="./images/scroll_icon.png" alt="Scroll" />
@@ -87,8 +91,9 @@ const PostingSection = ({ moveSectionDown }) => {
         <div className="posting__submit">
           <button>당신의 아침을 공유해 주세요</button>
         </div>
+
+        {/* 로그인 폼 모달 */}
         <Modal
-          // title="로그인"
           visible={visible}
           okText="로그인"
           onOk={handleOk}
@@ -96,7 +101,7 @@ const PostingSection = ({ moveSectionDown }) => {
           cancelText="취소"
           onCancel={handleCancel}
           bodyStyle={{
-            width: 400,
+            width: 520,
             fontFamily: "NanumSquareRound",
           }}
           style={{
@@ -105,10 +110,11 @@ const PostingSection = ({ moveSectionDown }) => {
           }}
           footer={null}
         >
+          {/* 로그인 폼 */}
           <Form
             name="basic"
             labelCol={{
-              span: 10,
+              span: 5,
             }}
             wrapperCol={{
               span: 16,
@@ -149,7 +155,7 @@ const PostingSection = ({ moveSectionDown }) => {
 
             <Form.Item
               wrapperCol={{
-                offset: 8,
+                offset: 5,
                 span: 16,
               }}
             >
@@ -166,9 +172,10 @@ const PostingSection = ({ moveSectionDown }) => {
               name="remember"
               valuePropName="checked"
               wrapperCol={{
-                offset: 8,
+                offset: 5,
                 span: 16,
               }}
+              className="signin-btns-group"
             >
               {/* <Checkbox>이메일 저장하기</Checkbox> */}
               <Link to="/" className="signin-btns">
