@@ -26,7 +26,9 @@ import "swiper/components/navigation/navigation.min.css";
 /* COMPONENTS */
 import PostingSection from "../components/homeCmp/PostingSection";
 import GroupPostings from "../components/homeCmp/GroupPostings";
+import Map from "./Map";
 import { DoGoodMorningContext } from "../components/App";
+import SubmitModal from "../components/homeCmp/SubmitModal";
 
 /* CSS */
 import "./css/Home.css";
@@ -37,6 +39,7 @@ const Home = () => {
   const history = useHistory();
   const { formState, setFormState } = useContext(DoGoodMorningContext);
   const [visible, setVisible] = useState(false);
+  const [visibleSubmitModal, setVisibleSubmitModal] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("Content of the modal");
 
@@ -53,7 +56,7 @@ const Home = () => {
   const [nickname, setNickname] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
 
-  const api = "http://ec2-3-36-87-84.ap-northeast-2.compute.amazonaws.com:5000";
+  const api = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     if (formState === "loggedin") {
@@ -209,7 +212,9 @@ const Home = () => {
         )}
       </div>
       <div className="posting__submit">
-        <button>당신의 아침을 공유해 주세요</button>
+        <button onClick={setVisibleSubmitModal}>
+          당신의 아침을 공유해 주세요
+        </button>
       </div>
       {/* 로그인 폼 모달 */}
       <Modal
@@ -407,6 +412,10 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </Modal>
+      <SubmitModal
+        visible={visibleSubmitModal}
+        setVisible={setVisibleSubmitModal}
+      />
     </>
   );
 };
@@ -424,9 +433,7 @@ const FullPage = () => (
               moveSectionDown={() => fullpageApi.moveSectionDown()}
             />
             {/* SECTION 2 : 지도 섹션 */}
-            <div className="section map-section">
-              <p>Section 2</p>
-            </div>
+            <Map />
             {/* SECTION 3 : 포스팅 그룹 섹션 */}
             <GroupPostings />
           </ReactFullpage.Wrapper>
