@@ -103,34 +103,32 @@ function MapChart() {
           projection="geoEquirectangular"
           projectionConfig={{ scale: 185 }}
         >
-          <ZoomableGroup>
-            <Geographies geography={geoUrl}>
-              {({ geographies }) =>
-                geographies.map((geo) => (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    onClick={() => handleOnClick(geo.properties["NAME"])}
-                    style={{
-                      default: {
-                        fill: "lightgray",
-                        outline: "none",
-                      },
-                      hover: {
-                        fill: "#F53",
-                        outline: "none",
-                      },
-                      pressed: {
-                        fill: "#E42",
-                        outline: "none",
-                      },
-                    }}
-                  />
-                ))
-              }
-            </Geographies>
-            {mapMarker}
-          </ZoomableGroup>
+          <Geographies geography={geoUrl}>
+            {({ geographies }) =>
+              geographies.map((geo) => (
+                <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  onClick={() => handleOnClick(geo.properties["NAME"])}
+                  style={{
+                    default: {
+                      fill: "lightgray",
+                      outline: "none",
+                    },
+                    hover: {
+                      fill: "#F53",
+                      outline: "none",
+                    },
+                    pressed: {
+                      fill: "#E42",
+                      outline: "none",
+                    },
+                  }}
+                />
+              ))
+            }
+          </Geographies>
+          {mapMarker}
         </ComposableMap>
       </div>
     </>

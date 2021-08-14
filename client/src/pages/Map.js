@@ -3,7 +3,7 @@ import MapChart from "../components/mapCmp/MapChart";
 const Map = () => {
   return (
     <>
-      <div className="map">
+      <div className="section group-section">
         <MapChart />
       </div>
     </>

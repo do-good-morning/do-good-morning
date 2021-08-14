@@ -53,8 +53,7 @@ const PostingSection = ({ moveSectionDown }) => {
 
   /* 포스팅 state */
   const [imageList, setImageList] = useState([]);
-  const api =
-    "http://ec2-3-35-206-232.ap-northeast-2.compute.amazonaws.com:5000";
+  const api = process.env.REACT_APP_API_URL;
 
   // SIGN 입력 핸들러
   const onChangeHandler = (event) => {
@@ -191,21 +190,20 @@ const PostingSection = ({ moveSectionDown }) => {
     console.log("get image");
 
     function GetPostingImages() {
-      axios
-        .get(
-          "http://ec2-3-35-206-232.ap-northeast-2.compute.amazonaws.com:5000/landing"
-        )
-        .then((response) => {
-          setImageList(response.data.images);
-
-          console.log("axios", response.data.images);
-        });
+      axios.get(`${api}/landing`).then((response) => {
+        setImageList(response.data.images);
+      });
     }
     GetPostingImages();
   }, []);
 
-  const PostingSwiper = imageList.map(({ data }) => console.log(data));
-
+  // const PostingSwiper = imageList.map(({ data }) =>
+  //   console.log(data)
+  //   // <SwiperSlide>
+  //   //   <Posting data={data} />
+  //   // </SwiperSlide>
+  // );
+  console.log(imageList);
   return (
     <>
       <div className="section posting-section">
@@ -236,6 +234,7 @@ const PostingSection = ({ moveSectionDown }) => {
           <SwiperSlide>
             <Posting />
           </SwiperSlide>
+          {/* <PostingSwiper /> */}
         </Swiper>
 
         {/* 스크롤 버튼 */}

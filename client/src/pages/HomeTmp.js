@@ -6,6 +6,7 @@ import ReactFullpage from "@fullpage/react-fullpage";
 
 /* COMPONENTS */
 import PostingSection from "../components/homeCmp/PostingSection";
+import Map from "./Map";
 
 /* CSS */
 import "./css/Home.css";
@@ -22,9 +23,7 @@ const HomeTmp = () => (
             moveSectionDown={() => fullpageApi.moveSectionDown()}
           />
           {/* SECTION 2 : 지도 섹션 */}
-          <div className="section map-section">
-            <p>Section 2</p>
-          </div>
+          <Map />
           {/* SECTION 3 : 포스팅 그룹 섹션 */}
           <div className="section group-section">
             <p>Section 3</p>
