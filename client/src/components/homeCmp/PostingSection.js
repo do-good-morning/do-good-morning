@@ -1,29 +1,57 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+/* FULL PAGE */
 import ReactFullpage from "@fullpage/react-fullpage";
+
+/* ANT-DESIGN */
 import { LoginOutlined, UserOutlined } from "@ant-design/icons";
-import { Modal, Button } from "antd";
+import { Modal, Form, Input, Button, Checkbox, AutoComplete } from "antd";
+
+import "antd/dist/antd.css";
+
+/* SWIPER */
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
-import Posting from "./Posting";
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
-import "antd/dist/antd.css";
+
+/* COMPONENTS */
+import Posting from "./Posting";
+
+import "./css/PostingSection.css";
 
 SwiperCore.use([Navigation]);
 
 const PostingSection = ({ moveSectionDown }) => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [modalText, setModalText] = useState("Content of the modal");
 
   const showModal = () => {
-    setIsModalVisible(true);
+    setVisible(true);
   };
 
   const handleOk = () => {
-    setIsModalVisible(false);
+    setModalText("The modal will be closed after two seconds");
+    setConfirmLoading(true);
+    setTimeout(() => {
+      setVisible(false);
+      setConfirmLoading(false);
+    }, 2000);
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false);
+    console.log("Clicked cancel button");
+    setVisible(false);
+  };
+
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
+
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -60,14 +88,102 @@ const PostingSection = ({ moveSectionDown }) => {
           <button>당신의 아침을 공유해 주세요</button>
         </div>
         <Modal
-          title="로그인"
-          visible={isModalVisible}
+          // title="로그인"
+          visible={visible}
+          okText="로그인"
           onOk={handleOk}
+          confirmLoading={confirmLoading}
+          cancelText="취소"
           onCancel={handleCancel}
+          bodyStyle={{
+            width: 400,
+            fontFamily: "NanumSquareRound",
+          }}
+          style={{
+            marginTop: 150,
+            border: "none",
+          }}
+          footer={null}
         >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          <Form
+            name="basic"
+            labelCol={{
+              span: 10,
+            }}
+            wrapperCol={{
+              span: 16,
+            }}
+            initialValues={{
+              remember: true,
+            }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            className="signin__form"
+          >
+            <h1 className="signin__title">로그인</h1>
+            <Form.Item
+              label="이메일"
+              name="username"
+              rules={[
+                {
+                  required: true,
+                  message: "이메일을 입력해주세요!",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item
+              label="비밀번호"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: "패스워드를 입력해주세요!",
+                },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+
+            <Form.Item
+              wrapperCol={{
+                offset: 8,
+                span: 16,
+              }}
+            >
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="signin-btn-submit"
+              >
+                로그인
+              </Button>
+            </Form.Item>
+
+            <Form.Item
+              name="remember"
+              valuePropName="checked"
+              wrapperCol={{
+                offset: 8,
+                span: 16,
+              }}
+            >
+              {/* <Checkbox>이메일 저장하기</Checkbox> */}
+              <Link to="/" className="signin-btns">
+                아이디 찾기
+              </Link>
+              <span className="bar">|</span>
+              <Link to="/" className="signin-btns">
+                비밀번호 찾기
+              </Link>
+              <span className="bar">|</span>
+              <Link to="/" className="signin-btns">
+                회원가입
+              </Link>
+            </Form.Item>
+          </Form>
         </Modal>
       </div>
     </>

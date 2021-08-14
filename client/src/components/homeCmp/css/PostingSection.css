@@ -1,0 +1,42 @@
+.posting-section .ant-modal {
+  background-color: gray;
+}
+
+.posting-section .ant-modal-root .ant-modal .ant-modal-content {
+  background-color: gray;
+}
+
+.signin__form {
+  /* width: 400px; */
+  /* margin: 0 auto; */
+}
+
+.signin__title {
+  margin: 0 0 30px 15px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "NanumSquareRound", sans-serif;
+  color: var(--color-light-black);
+}
+
+.signin-btn-submit {
+  width: 240px;
+  margin: 20px auto 0;
+  border: none;
+  background-color: var(--color-gray);
+  font-family: "NanumSquareRound", sans-serif;
+  color: var(--color-white);
+}
+
+.signin-btns {
+  border: none;
+  background-color: transparent;
+  font-family: "NanumSquareRound", sans-serif;
+  text-decoration: none;
+  color: var(--color-gray);
+}
+
+.bar {
+  margin: 0 7px;
+}

@@ -6,7 +6,7 @@ import "./css/Home.css";
 const HomeTmp = () => (
   <ReactFullpage
     licenseKey={"9FA666D8-21AD41DE-A43A3694-078F442A"}
-    scrollingSpeed={1000}
+    scrollingSpeed={900}
     render={({ state, fullpageApi }) => {
       return (
         <ReactFullpage.Wrapper>
