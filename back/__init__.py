@@ -27,12 +27,13 @@ def create_app():
     CORS(app, supports_credentials=True)
     # 블루프린트
 # --------------------------------------------------------------------------- #
-    from .views import auth, landing, upload, like
+    from .views import auth, landing, upload, like, image, rank
     app.register_blueprint(auth.bp)
     app.register_blueprint(landing.bp)
     app.register_blueprint(upload.bp)
     app.register_blueprint(like.bp)
-
+    app.register_blueprint(image.bp)
+    app.register_blueprint(rank.bp)
 
     app.config['JWT_SECRET_KEY'] = 'doogood'
     app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=24)

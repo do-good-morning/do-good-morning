@@ -25,9 +25,12 @@ def Bookmark():
 
         user_id = decode_token(header[7:] , csrf_value = None , allow_expired = False)['sub']
         bookmark = models.Bookmark.query.filter_by(image_id=image_id, user_id=user_id).first()
+        image = models.Image.query.filter_by(id=image_id).first()
 
         if bookmark is not None:
             models.db.session.delete(bookmark)
+            models.db.session.commit()
+            image.count_like -= 1
             models.db.session.commit()
 
             return {'msg' : 'Delete bookmark'}, 200
@@ -39,6 +42,8 @@ def Bookmark():
                             date=datetime.now()
                         )
             models.db.session.add(bookmark)
+            models.db.session.commit()
+            image.count_like += 1
             models.db.session.commit()
 
             return {'msg' : 'Make bookmark'}, 200

@@ -23,6 +23,7 @@ class Image(db.Model):  # user_image_table
     image_city = Column(String(256))
     image_upload_time = Column(String(256))
     image_description = Column(Text(16000000), nullable=True)
+    count_like = Column(Integer, default=0)
 
 class Bookmark(db.Model):
     __tablename__ = 'bookmark'
@@ -32,5 +33,4 @@ class Bookmark(db.Model):
 
     user_id = Column(Integer, ForeignKey('user.id', ondelete='cascade'))
     image_id = Column(Integer)
-    
     date = Column(DATE)

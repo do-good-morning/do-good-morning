@@ -19,27 +19,20 @@ def show_image():
         .filter(models.Image.id.in_(rand_id)).all()
     images = []
     for i in select_images:
-        image_data = ''
-        for j in i.image_data:
-            if j not in ['(', ')']:
-                if j ==' ':
-                    image_data += '_'
-                else:
-                    image_data += j
-                    
+        user = models.User.query.filter_by(id = i.user_id).first()
         image = {
-            'ImageData' : image_data,
+            'Nickname' : user.nickname,
+            'ImageData' : i.image_data,
             'ImageCountry' : i.image_country,
             'ImageCity' : i.image_city,
             'ImageId' : i.id,
             'ImageUploadTime' : i.image_upload_time,
-            'ImageDescription' : i.image_description
+            'ImageDescription' : i.image_description,
+            'Like' : i.count_like
         }
         images.append(image)
-    print(images)
     return {'images' : images }, 200
 
 @bp.route('/img/<path:path>')
 def send_js(path):
-    print(path)
     return send_from_directory('/home/ubuntu/do-good-morning/back/img/', path)

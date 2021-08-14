@@ -54,7 +54,8 @@ def register():
 
             return {
                         'AccessToken': accessToken,
-                        'Nickname': queried.nickname
+                        'Nickname': queried.nickname,
+                        'Email' : queried.email
                     }, 200
 
         elif checkvalid.passwordCheck(pw) == 2:
@@ -88,8 +89,9 @@ def login():
         if bcrypt.checkpw(pw.encode('utf-8'), queried.pw.encode('utf-8')):
             accessToken = create_access_token(identity=queried.id, fresh=True)
             return {
-                     'AccessToken': accessToken,
-                     'Nickname': queried.nickname
+                    'AccessToken': accessToken,
+                    'Nickname': queried.nickname,
+                    'Email' : queried.email
                   }, 200
 
         else:
