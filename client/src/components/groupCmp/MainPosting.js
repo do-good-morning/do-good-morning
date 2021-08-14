@@ -9,7 +9,7 @@ const MainPosting = ({ data }) => {
     return (
       <>
         <div className="main-posting">
-          <img src={imageUrl} alt="sample" />
+          <img className="image-lg" src={imageUrl} alt="sample" />
           <div className="main-posting__title">
             <span>{data.Nickname}의 아침</span>
           </div>
@@ -30,7 +30,7 @@ const MainPosting = ({ data }) => {
     return (
       <>
         <div className="main-posting">
-          <img src="./images/sample.png" alt="sample" />
+          <img className="image-lg" src="./images/sample.png" alt="sample" />
           <div className="main-posting__title">
             <span>김두굿의 아침</span>
           </div>

@@ -4,12 +4,11 @@ import "./css/SubPosting.css";
 
 const SubPosting = ({ data }) => {
   if (data) {
-    console.log("sub", data);
     const imageUrl = process.env.REACT_APP_API_URL + "/img/" + data.ImageData;
     return (
       <>
         <div className="sub-posting">
-          <img src={imageUrl} alt="sample" />
+          <img className="image-sm" src={imageUrl} alt="sample" />
           <div className="sub-posting__title">
             <span>{data.Nickname}의 아침</span>
           </div>
@@ -29,7 +28,7 @@ const SubPosting = ({ data }) => {
     return (
       <>
         <div className="sub-posting">
-          <img src="./images/sample.png" alt="sample" />
+          <img className="imageSm" src="./images/sample.png" alt="sample" />
           <div className="sub-posting__title">
             <span>김두굿의 아침</span>
           </div>

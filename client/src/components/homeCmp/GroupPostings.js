@@ -12,6 +12,7 @@ const GroupPostings = () => {
   const [postingList, setPostingList] = useState("");
   const api = process.env.REACT_APP_API_URL;
 
+  console.log("LAST", selectedCountry);
   // 포스팅 섹션
   useEffect(() => {
     (async function GetPostingImages() {
@@ -26,8 +27,7 @@ const GroupPostings = () => {
         });
       return;
     })();
-  }, []);
-  console.log("imagelist first", imageList);
+  }, [selectedCountry]);
 
   if (imageList.length) {
     console.log(imageList["0"]);
