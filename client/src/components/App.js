@@ -7,6 +7,8 @@ const DoGoodMorningContext = createContext({});
 
 function App() {
   const [selectedCountry, setSelectedCountry] = useState("all");
+  const [formState, setFormState] = useState("login");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <div>
@@ -14,6 +16,10 @@ function App() {
         value={{
           selectedCountry,
           setSelectedCountry,
+          formState,
+          setFormState,
+          isLoggedIn,
+          setIsLoggedIn,
         }}
       >
         <AppRouter />

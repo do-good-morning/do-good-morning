@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "../pages/Home";
 import Map from "../pages/Map";
 import Images from "../pages/Images";
 import Rank from "../pages/Rank";
 import ImageUploadModal from "./imageUploadModal/ImageUpload";
+import { DoGoodMorningContext } from "./App";
 
 const AppRouter = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState("");
+  const { setIsLoggedIn } = useContext(DoGoodMorningContext);
 
   useEffect(() => {
-    const check = localStorage.jwt ? true : false;
-    setIsLoggedIn(check);
+    if (localStorage.jwt) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
   }, []);
 
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} isLoggedIn={isLoggedIn} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/map" component={Map} />
         <Route exact path="/images" component={Images} />
         <Route exact path="/rank" component={Rank} />

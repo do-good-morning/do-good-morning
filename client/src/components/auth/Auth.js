@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import { formState, setFormState } from "../App";
+import { DoGoodMorningContext } from "../App";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -7,9 +9,9 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
   const [blank, setBlank] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const { formState, setFormState } = useContext(DoGoodMorningContext);
   const api =
-    "http://ec2-54-180-154-40.ap-northeast-2.compute.amazonaws.com:5000";
+    "http://ec2-3-35-206-232.ap-northeast-2.compute.amazonaws.com:5000";
 
   // (회원가입 폼) 입력 핸들러
   const onChangeHandler = (event) => {
@@ -43,30 +45,17 @@ function SignUp() {
         .then((response) => {
           console.log(response);
           if (response.status === 200) {
+            setFormState("login");
             alert("회원가입 성공!");
             localStorage.setItem("jwt", response.data.AccessToken);
             localStorage.setItem("nickname", response.data.Nickname);
-            setIsLogin(true);
           } else {
             console.log(response.data);
           }
         })
         .catch((error) => {
           console.log(error.response);
-          // alert(error.response.data.msg);
         });
-      // .then(
-      //   axios
-      //     .get(`${process.env.REACT_APP_API_URL}/api/current/`, {
-      //       headers: { Authorization: "JWT " + localStorage.getItem("jwt") },
-      //     })
-      //     .then((response) => {
-      //       localStorage.setItem("user", response.data.pk);
-      //       localStorage.setItem("username", response.data.username);
-      //       localStorage.setItem("email", response.data.email);
-      //       localStorage.setItem("user", response.data.pk);
-      //     })
-      // );
     } else alert("비밀번호는 8자이상, 숫자+영어 조합으로 입력해주세요.");
   };
 
@@ -88,6 +77,7 @@ function SignUp() {
             localStorage.setItem("jwt", response.data.AccessToken);
             localStorage.setItem("nickname", response.data.Nickname);
             setNickname(response.data.Nickname);
+            setFormState("loggedin");
             alert("로그인 성공!");
           } else {
             alert("error");
@@ -121,7 +111,7 @@ function SignUp() {
           <span>아이디가 없으신가요?</span>
         </div>
       </form>
-      <button onClick={() => setIsLogin(false)}>회원가입</button>
+      <button onClick={() => setFormState("sign-up")}>회원가입</button>
     </>
   );
 
@@ -158,11 +148,11 @@ function SignUp() {
         />
         <button onClick={onSignUpHandler}>회원가입</button>
       </form>
-      <button onClick={() => setIsLogin(true)}>로그인</button>
+      <button onClick={() => setFormState("login")}>로그인</button>
     </>
   );
 
-  return <div>{isLogin ? signInForm : signUpForm}</div>;
+  return <div>{formState === "login" ? signInForm : signUpForm}</div>;
 }
 
 export default SignUp;
