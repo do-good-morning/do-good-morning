@@ -19,7 +19,7 @@ const Home = ({ isLoggedIn }) => {
         onOk={() => setIsModalVisible(false)}
         onCancel={() => setIsModalVisible(false)}
       >
-        <SignUp />
+        <Auth />
       </Modal>
     </>
   );

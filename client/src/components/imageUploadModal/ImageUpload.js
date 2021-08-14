@@ -11,21 +11,21 @@ export default function ImageUploadModal() {
   const [imgBase64, setImgBase64] = useState("");
   const [imgFile, setImgFile] = useState(null);
 
-  // const resizeFile = (file) =>
-  //   new Promise((resolve) => {
-  //     Resizer.imageFileResizer(
-  //       file,
-  //       416,
-  //       416,
-  //       "JPEG",
-  //       100,
-  //       0,
-  //       (uri) => {
-  //         resolve(uri);
-  //       },
-  //       "file"
-  //     );
-  //   });
+  const resizeFile = (file) =>
+    new Promise((resolve) => {
+      Resizer.imageFileResizer(
+        file,
+        416,
+        416,
+        "JPEG",
+        100,
+        0,
+        (uri) => {
+          resolve(uri);
+        },
+        "file"
+      );
+    });
 
   async function onChangeImage(e) {
     e.preventDefault();
@@ -33,13 +33,13 @@ export default function ImageUploadModal() {
     console.log(originalfile);
     setImage(originalfile);
 
-    // try {
-    //   const resizedImage = await resizeFile(originalfile);
-    //   setImage(resizedImage);
-    //   console.log(resizeFile);
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    try {
+      const resizedImage = await resizeFile(originalfile);
+      setImage(resizedImage);
+      console.log(resizeFile);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   // 업로드 이미지
@@ -74,7 +74,7 @@ export default function ImageUploadModal() {
       formData.append("ImageCountry", "ssss");
       formData.append("ImageCity", "ssss");
       formData.append("ImageDescription", "ssss");
-      axios.post(`${process.env.REACT_APP_API_URL}/fileupload/`, formData, {
+      axios.post(`${process.env.REACT_APP_API_URL}/fileupload`, formData, {
         headers: { Authorization: "JWT " + jwt },
         "content-type": "multipart/form-data",
       });
