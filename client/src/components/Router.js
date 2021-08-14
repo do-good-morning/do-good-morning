@@ -22,7 +22,7 @@ const AppRouter = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={HomeTmp} />
         <Route exact path="/map" component={Map} />
         <Route exact path="/images" component={Images} />
         <Route exact path="/rank" component={Rank} />
