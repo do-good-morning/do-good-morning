@@ -21,7 +21,7 @@ export default function MainPage() {
 
   const imageList = images.map(({ data }) => (
     <div>
-      <p>김두</p>
+      <p>이름 </p>
       <img src={data.url} alt="" />
     </div>
   ));

@@ -20,6 +20,23 @@ export default function ImageUploadModal() {
     console.log(inputs);
   };
 
+  // 이미지 파일 핸들러
+
+  async function onChangeImage(e) {
+    e.preventDefault();
+    const originalfile = e.target.files[0];
+    setImage(originalfile);
+
+    try {
+      const resizedImage = await resizeFile(originalfile);
+      setImage(resizedImage);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
   const resizeFile = (file) =>
     new Promise((resolve) => {
       Resizer.imageFileResizer(
@@ -36,25 +53,8 @@ export default function ImageUploadModal() {
       );
     });
 
-  async function onChangeImage(e) {
-    e.preventDefault();
-    const originalfile = e.target.files[0];
-    console.log(originalfile);
-    setImage(originalfile);
-
-    try {
-      const resizedImage = await resizeFile(originalfile);
-      setImage(resizedImage);
-      console.log(resizeFile);
-    } catch (err) {
-      console.log(err);
-    }
-  }
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
+  //
+  const submitForm = () => {
     if (image !== null) {
       console.log("img");
       const formData = new FormData();
@@ -66,9 +66,10 @@ export default function ImageUploadModal() {
         headers: { Authorization: "JWT " + jwt },
         "content-type": "multipart/form-data",
       });
-    } else {
-      console.log("noimg");
     }
+  };
+
+  const handleOk = () => {
     setIsModalVisible(false);
   };
 
@@ -112,7 +113,10 @@ export default function ImageUploadModal() {
       <Modal
         title="Basic Modal"
         visible={isModalVisible}
-        onOk={handleOk}
+        onOk={() => {
+          handleOk();
+          submitForm();
+        }}
         onCancel={handleCancel}
       >
         <ImageUploadComponent />
