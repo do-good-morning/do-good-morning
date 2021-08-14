@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Resizer from "react-image-file-resizer";
-import { Modal, Button } from "antd";
+import { Modal, Button, Input } from "antd";
 
 export default function ImageUploadModal() {
   const [image, setImage] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const jwt =
-    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjI4OTI5MDA1LCJqdGkiOiI0MTdlMzk5Yi1lZTc5LTRjYmQtOWEwYS05OWM5MzhlYjYyNGEiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoxLCJuYmYiOjE2Mjg5MjkwMDUsImV4cCI6MTYyOTAxNTQwNX0.4VYhXL3oViQbTa2urBGJuS1AhGECRoTnhkMCHJc8FWo";
-  const [imgBase64, setImgBase64] = useState("");
-  const [imgFile, setImgFile] = useState(null);
+  const jwt = localStorage.getItem("jwt");
+  const [inputs, setInputs] = useState({
+    country: "",
+    city: "",
+    memo: "",
+  });
+
+  const { country, city, memo } = inputs;
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setInputs({ ...inputs, [name]: value });
+    console.log(inputs);
+  };
 
   const resizeFile = (file) =>
     new Promise((resolve) => {
@@ -41,27 +50,6 @@ export default function ImageUploadModal() {
       console.log(err);
     }
   }
-
-  // 업로드 이미지
-  function onClickSubmit() {}
-
-  function ImageUploadComponent() {
-    return (
-      <div style={{ width: "100px" }}>
-        <form
-          action="/"
-          id="uploadForm"
-          method="post"
-          enctype="multipart/form-data"
-        >
-          <input type="file" name="file" id="file" onChange={onChangeImage} />
-          <input type="text"></input>
-          <button onClick={onClickSubmit}></button>
-        </form>
-      </div>
-    );
-  }
-
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -71,9 +59,9 @@ export default function ImageUploadModal() {
       console.log("img");
       const formData = new FormData();
       formData.append("ImageData", image);
-      formData.append("ImageCountry", "ssss");
-      formData.append("ImageCity", "ssss");
-      formData.append("ImageDescription", "ssss");
+      formData.append("ImageCountry", country);
+      formData.append("ImageCity", city);
+      formData.append("ImageDescription", memo);
       axios.post(`${process.env.REACT_APP_API_URL}/fileupload`, formData, {
         headers: { Authorization: "JWT " + jwt },
         "content-type": "multipart/form-data",
@@ -87,6 +75,33 @@ export default function ImageUploadModal() {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  function ImageUploadComponent() {
+    return (
+      <div style={{ width: "100px" }}>
+        <form
+          action="/"
+          id="uploadForm"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div>
+            <Input type="file" name="file" id="file" onChange={onChangeImage} />
+          </div>
+          <div>
+            <input
+              type="text"
+              name="country"
+              value={country}
+              onChange={onChange}
+            />
+            <input type="text" name="city" value={city} onChange={onChange} />
+            <input type="text" name="memo" value={memo} onChange={onChange} />
+          </div>
+        </form>
+      </div>
+    );
+  }
 
   return (
     <div>

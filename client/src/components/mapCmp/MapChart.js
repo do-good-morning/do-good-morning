@@ -7,8 +7,7 @@ import {
   Geography,
   Marker,
 } from "react-simple-maps";
-import "./MapChart.css";
-import { generatePath } from "react-router";
+import "./MapCmp.css";
 
 var timestamp = Date.now();
 var date = new Date(timestamp);
@@ -35,7 +34,7 @@ function MapChart() {
       name: "브라질리아, 브라질",
       coordinates: [-40.0721, -10.711],
     },
-    { markerOffset: 15, name: "런던, 영국", coordinates: [-78.4678, -0.1807] },
+    { markerOffset: 15, name: "런던, 영국", coordinates: [0.1551, 60.8013] },
     {
       markerOffset: -30,
       name: "로마, 이탈리아",
@@ -44,25 +43,43 @@ function MapChart() {
     {
       markerOffset: -30,
       name: "모스크바, 러시아",
-      coordinates: [-57.5759, -25.2637],
+      coordinates: [30.1551, 46],
     },
     {
       markerOffset: 15,
       name: "두바이, 아랍에미리트",
-      coordinates: [-55.2038, 5.852],
+      coordinates: [50.1551, 26],
     },
     {
       markerOffset: 15,
       name: "베이징, 중국",
-      coordinates: [-56.1645, -34.9011],
+      coordinates: [96.59, 37.33],
     },
-    { markerOffset: 15, name: "시드니 호주", coordinates: [-66.9036, 10.4806] },
-    { markerOffset: 15, name: "서울", coordinates: [126.59, 37.33] },
+    {
+      markerOffset: 15,
+      name: "시드니, 호주",
+      coordinates: [136.59, -12.33],
+    },
+    { markerOffset: 15, name: "서울, 한국", coordinates: [126.59, 37.33] },
   ];
 
   const mapMarker = markers.map(({ name, coordinates, markerOffset }) => (
     <Marker key={name} coordinates={coordinates}>
-      <span class="tooltiptext tooltip-top">위쪽 툴팁</span>
+      <g
+        fill="none"
+        stroke="#FF5533"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        transform="translate(-12, -24)"
+      >
+        <image
+          href="https://interactive-examples.mdn.mozilla.net/media/examples/plumeria.jpg"
+          height="25px"
+          width="25px"
+        />
+        <path />
+      </g>
       <text
         textAnchor="middle"
         y={markerOffset}
@@ -96,7 +113,7 @@ function MapChart() {
                     onClick={() => handleOnClick(geo.properties["NAME"])}
                     style={{
                       default: {
-                        fill: "black",
+                        fill: "lightgray",
                         outline: "none",
                       },
                       hover: {
