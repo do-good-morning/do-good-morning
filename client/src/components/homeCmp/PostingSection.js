@@ -8,9 +8,7 @@ import axios from "axios";
 /* ANT-DESIGN */
 import {
   LoginOutlined,
-  MailOutlined,
   UserOutlined,
-  LockOutlined,
   RightCircleOutlined,
 } from "@ant-design/icons";
 import { Modal, Form, Input, Button } from "antd";
@@ -24,7 +22,6 @@ import "swiper/components/navigation/navigation.min.css";
 
 /* COMPONENTS */
 import Posting from "./Posting";
-import Auth from "../auth/Auth";
 import { DoGoodMorningContext } from "../App";
 
 /* CSS */
@@ -33,13 +30,14 @@ import "./css/PostingSection.css";
 SwiperCore.use([Navigation]);
 
 const PostingSection = ({ moveSectionDown }) => {
-  // const [isModalVisible, setIsModalVisible] = useState(false);
+  const history = useHistory();
   const { formState, setFormState } = useContext(DoGoodMorningContext);
-  const { isLoggedIn } = useContext(DoGoodMorningContext);
-  // const history = useHistory();
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("Content of the modal");
+
+  /* 로그인 상태 확인 */
+  const { isLoggedIn } = useContext(DoGoodMorningContext);
 
   /* 로그인 state */
   const [emailSI, setEmailSI] = useState("");
@@ -50,6 +48,14 @@ const PostingSection = ({ moveSectionDown }) => {
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
   const [passwordCheck, setPasswordCheck] = useState("");
+
+  const api = "http://ec2-3-36-87-84.ap-northeast-2.compute.amazonaws.com:5000";
+
+  useEffect(() => {
+    if (formState === "loggedin") {
+      setVisible(false);
+    }
+  }, [formState]);
 
   /* 포스팅 state */
   const [imageList, setImageList] = useState([]);
@@ -78,6 +84,43 @@ const PostingSection = ({ moveSectionDown }) => {
     }
   };
 
+  // 로그인 버튼 핸들러
+  const onSignInHandler = (event) => {
+    console.log(`email${emailSI}`);
+    console.log(`pwd${passwordSI}`);
+
+    event.preventDefault();
+
+    if (!emailSI || !passwordSI) {
+      alert("로그인 폼을 입력해주세요");
+    } else {
+      axios
+        .post(`${api}/sign-in`, {
+          Email: emailSI,
+          Password: passwordSI,
+          withCredentials: true,
+        })
+        .then((response) => {
+          if (response.status === 200) {
+            localStorage.setItem("jwt", response.data.AccessToken);
+            localStorage.setItem("nickname", response.data.Nickname);
+            localStorage.setItem("email", response.data.Email);
+
+            setNickname(response.data.Nickname);
+            setFormState("loggedin");
+            alert("로그인 성공!");
+
+            window.location.replace("/");
+          } else {
+            alert("error");
+          }
+        })
+        .catch((error) => {
+          console.log(error.response);
+        });
+    }
+  };
+
   // 회원가입 버튼 핸들러
   const onSignUpHandler = (event) => {
     event.preventDefault();
@@ -103,6 +146,8 @@ const PostingSection = ({ moveSectionDown }) => {
             alert("회원가입 성공!");
             localStorage.setItem("jwt", response.data.AccessToken);
             localStorage.setItem("nickname", response.data.Nickname);
+            localStorage.setItem("email", response.data.Email);
+
             window.location.replace("/");
           } else {
             console.log(response.data);
@@ -116,47 +161,11 @@ const PostingSection = ({ moveSectionDown }) => {
     }
   };
 
-  // 로그인 버튼 핸들러
-  const onSignInHandler = (event) => {
-    console.log(`email${emailSI}`);
-    console.log(`pwd${passwordSI}`);
-
-    event.preventDefault();
-
-    if (!emailSI || !passwordSI) {
-      alert("로그인 폼을 입력해주세요");
-    } else {
-      axios
-        .post(`${api}/sign-in`, {
-          Email: emailSI,
-          Password: passwordSI,
-          withCredentials: true,
-        })
-        .then((response) => {
-          if (response.status === 200) {
-            localStorage.setItem("jwt", response.data.AccessToken);
-            localStorage.setItem("nickname", response.data.Nickname);
-
-            setNickname(response.data.Nickname);
-            setFormState("loggedin");
-            alert("로그인 성공!");
-
-            window.location.replace("/");
-          } else {
-            alert("error");
-          }
-        })
-        .catch((error) => {
-          console.log(error.response);
-        });
-    }
+  /* 마이페이지 이동 핸들러 */
+  const onMoveProfile = () => {
+    alert("마이페이지 이동");
+    history.push("/profile");
   };
-
-  useEffect(() => {
-    if (formState === "loggedin") {
-      setVisible(false);
-    }
-  }, [formState]);
 
   /* MODAL 핸들러 */
   const showModal = () => {
@@ -176,14 +185,6 @@ const PostingSection = ({ moveSectionDown }) => {
     console.log("Clicked cancel button");
     setVisible(false);
   };
-
-  // const onFinish = (values) => {
-  //   console.log("Success:", values);
-  // };
-
-  // const onFinishFailed = (errorInfo) => {
-  //   console.log("Failed:", errorInfo);
-  // };
 
   // 포스팅
   useEffect(() => {
@@ -216,17 +217,19 @@ const PostingSection = ({ moveSectionDown }) => {
 
         {/* 로그인 버튼 */}
         <div className="sign-btn">
-          <span onClick={showModal}>
-            {isLoggedIn ? (
-              <>
+          {isLoggedIn ? (
+            <>
+              <span onClick={onMoveProfile}>
                 <UserOutlined className="sign__icons" />
-              </>
-            ) : (
-              <>
+              </span>
+            </>
+          ) : (
+            <>
+              <span onClick={showModal}>
                 <LoginOutlined className="sign__icons" />
-              </>
-            )}
-          </span>
+              </span>
+            </>
+          )}
         </div>
 
         {/* 포스팅 SWIPER */}

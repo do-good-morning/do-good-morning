@@ -7,6 +7,7 @@ import ReactFullpage from "@fullpage/react-fullpage";
 /* COMPONENTS */
 import PostingSection from "../components/homeCmp/PostingSection";
 import Map from "./Map";
+import GroupPostings from "../components/homeCmp/GroupPostings";
 
 /* CSS */
 import "./css/Home.css";
@@ -25,9 +26,7 @@ const HomeTmp = () => (
           {/* SECTION 2 : 지도 섹션 */}
           <Map />
           {/* SECTION 3 : 포스팅 그룹 섹션 */}
-          <div className="section group-section">
-            <p>Section 3</p>
-          </div>
+          <GroupPostings />
         </ReactFullpage.Wrapper>
       );
     }}

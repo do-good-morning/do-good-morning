@@ -50,8 +50,11 @@ function SignUp() {
           if (response.status === 200) {
             setFormState("loggedin");
             alert("회원가입 성공!");
+
             localStorage.setItem("jwt", response.data.AccessToken);
             localStorage.setItem("nickname", response.data.Nickname);
+            localStorage.setItem("email", response.data.Email);
+
             window.location.replace("/");
           } else {
             console.log(response.data);
@@ -77,12 +80,15 @@ function SignUp() {
         })
         .then((response) => {
           if (response.status === 200) {
-            console.log(response.data);
             localStorage.setItem("jwt", response.data.AccessToken);
             localStorage.setItem("nickname", response.data.Nickname);
+            localStorage.setItem("email", response.data.Email);
+
             setNickname(response.data.Nickname);
             setFormState("loggedin");
+
             alert("로그인 성공!");
+
             window.location.replace("/");
           } else {
             alert("error");
