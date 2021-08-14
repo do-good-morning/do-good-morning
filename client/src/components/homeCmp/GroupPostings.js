@@ -39,12 +39,12 @@ const GroupPostings = () => {
             <div className="sub-posting__group">
               <ul>
                 <li className="group-line1">
-                  <SubPosting />
-                  <SubPosting />
+                  <SubPosting data={imageList["1"]} />
+                  <SubPosting data={imageList["2"]} />
                 </li>
                 <li className="group-line2">
-                  <SubPosting />
-                  <SubPosting />
+                  <SubPosting data={imageList["3"]} />
+                  <SubPosting data={imageList["4"]} />
                 </li>
               </ul>
             </div>
