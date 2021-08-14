@@ -125,7 +125,7 @@ function MapChart({ moveSectionDown }) {
                     onClick={handleOnClick}
                     style={{
                       default: {
-                        fill: "rgba(178,178,178)",
+                        fill: "#324047",
                         outline: "none",
                       },
                       hover: {
