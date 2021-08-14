@@ -1,4 +1,7 @@
 /* GROUP POSTINGS */
+.groupPostings-section {
+  background-color: #324047;
+}
 .groupPostings-section .groupPosting__inner {
   display: flex;
   justify-content: center;

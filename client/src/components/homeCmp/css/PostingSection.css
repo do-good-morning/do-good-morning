@@ -1,11 +1,3 @@
-/* POSTING SECTION */
-.posting-section .ant-modal {
-  background-color: gray;
-}
-.posting-section .ant-modal-root .ant-modal .ant-modal-content {
-  background-color: gray;
-}
-
 /* SIGNIN FORM */
 .signup__form {
   width: 450px;
