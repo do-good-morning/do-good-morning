@@ -1,6 +1,13 @@
+/* REACT */
 import React from "react";
+
+/* FULL PAGE */
 import ReactFullpage from "@fullpage/react-fullpage";
+
+/* COMPONENTS */
 import PostingSection from "../components/homeCmp/PostingSection";
+
+/* CSS */
 import "./css/Home.css";
 
 const HomeTmp = () => (

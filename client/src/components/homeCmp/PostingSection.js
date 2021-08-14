@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+/* REACT */
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 /* ANT-DESIGN */
-import { LoginOutlined } from "@ant-design/icons";
+import {
+  LoginOutlined,
+  MailOutlined,
+  UserOutlined,
+  LockOutlined,
+  RightCircleOutlined,
+} from "@ant-design/icons";
 import { Modal, Form, Input, Button } from "antd";
 import "antd/dist/antd.css";
 
@@ -15,7 +22,9 @@ import "swiper/components/navigation/navigation.min.css";
 /* COMPONENTS */
 import Posting from "./Posting";
 
+/* CSS */
 import "./css/PostingSection.css";
+// import "components/controller/controller.min.css";
 
 SwiperCore.use([Navigation]);
 
@@ -110,87 +119,159 @@ const PostingSection = ({ moveSectionDown }) => {
           }}
           footer={null}
         >
-          {/* 로그인 폼 */}
-          <Form
-            name="basic"
-            labelCol={{
-              span: 5,
-            }}
-            wrapperCol={{
-              span: 16,
-            }}
-            initialValues={{
-              remember: true,
-            }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            className="signin__form"
-          >
-            <h1 className="signin__title">로그인</h1>
-            <Form.Item
-              label="이메일"
-              name="username"
-              rules={[
-                {
-                  required: true,
-                  message: "이메일을 입력해주세요!",
-                },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-
-            <Form.Item
-              label="비밀번호"
-              name="password"
-              rules={[
-                {
-                  required: true,
-                  message: "패스워드를 입력해주세요!",
-                },
-              ]}
-            >
-              <Input.Password />
-            </Form.Item>
-
-            <Form.Item
-              wrapperCol={{
-                offset: 5,
-                span: 16,
-              }}
-            >
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="signin-btn-submit"
+          <Swiper className="mySwiper">
+            <SwiperSlide>
+              {/* 로그인 폼 */}
+              <Form
+                name="basic"
+                labelCol={{
+                  span: 5,
+                }}
+                wrapperCol={{
+                  span: 16,
+                }}
+                initialValues={{
+                  remember: true,
+                }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                className="signin__form"
               >
-                로그인
-              </Button>
-            </Form.Item>
+                <h2 className="signin__title">로그인</h2>
+                <Form.Item
+                  label="이메일"
+                  name="username"
+                  rules={[
+                    {
+                      required: true,
+                      message: "이메일을 입력해주세요!",
+                    },
+                  ]}
+                >
+                  <Input className="sign-input" />
+                </Form.Item>
 
-            <Form.Item
-              name="remember"
-              valuePropName="checked"
-              wrapperCol={{
-                offset: 5,
-                span: 16,
-              }}
-              className="signin-btns-group"
-            >
-              {/* <Checkbox>이메일 저장하기</Checkbox> */}
-              <Link to="/" className="signin-btns">
-                아이디 찾기
-              </Link>
-              <span className="bar">|</span>
-              <Link to="/" className="signin-btns">
-                비밀번호 찾기
-              </Link>
-              <span className="bar">|</span>
-              <Link to="/" className="signin-btns">
-                회원가입
-              </Link>
-            </Form.Item>
-          </Form>
+                <Form.Item
+                  label="비밀번호"
+                  name="password"
+                  rules={[
+                    {
+                      required: true,
+                      message: "패스워드를 입력해주세요!",
+                    },
+                  ]}
+                >
+                  <Input.Password className="sign-input" />
+                </Form.Item>
+
+                <Form.Item
+                  wrapperCol={{
+                    offset: 5,
+                    span: 16,
+                  }}
+                >
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="signin-btn-submit"
+                  >
+                    로그인
+                  </Button>
+                </Form.Item>
+
+                <span className="signin-info">
+                  회원가입 시 옆으로 슬라이드
+                  <RightCircleOutlined className="signin-arrow" />
+                </span>
+              </Form>
+            </SwiperSlide>
+            {/* 회원가입 폼 */}
+            <SwiperSlide>
+              <Form
+                name="basic"
+                labelCol={{
+                  span: 6,
+                }}
+                wrapperCol={{
+                  span: 16,
+                }}
+                initialValues={{
+                  remember: true,
+                }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                className="signup__form"
+              >
+                <h2 className="signin__title">회원가입</h2>
+                <Form.Item
+                  label="이메일"
+                  name="email_signup"
+                  rules={[
+                    {
+                      required: true,
+                      message: "이메일을 입력해주세요!",
+                    },
+                  ]}
+                >
+                  <Input className="sign-input" />
+                </Form.Item>
+
+                <Form.Item
+                  label="닉네임"
+                  name="nickName_signup"
+                  rules={[
+                    {
+                      required: true,
+                      message: "닉네임을 입력해주세요!",
+                    },
+                  ]}
+                >
+                  <Input className="sign-input" />
+                </Form.Item>
+
+                <Form.Item
+                  label="비밀번호"
+                  name="password_signup"
+                  rules={[
+                    {
+                      required: true,
+                      message: "패스워드를 입력해주세요!",
+                    },
+                  ]}
+                >
+                  <Input.Password className="sign-input" />
+                </Form.Item>
+
+                <Form.Item
+                  label="비밀번호 재확인"
+                  name="passwordCheck_signup"
+                  rules={[
+                    {
+                      required: true,
+                      message: "패스워드를 입력해주세요!",
+                    },
+                  ]}
+                >
+                  <Input.Password className="sign-input" />
+                </Form.Item>
+
+                <Form.Item
+                  wrapperCol={{
+                    offset: 6,
+                    span: 16,
+                  }}
+                >
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="signup-btn-submit"
+                  >
+                    회원가입
+                  </Button>
+                </Form.Item>
+              </Form>
+            </SwiperSlide>
+          </Swiper>
         </Modal>
       </div>
     </>
