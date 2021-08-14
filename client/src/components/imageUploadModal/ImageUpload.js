@@ -5,49 +5,45 @@ import { Modal, Button } from "antd";
 
 export default function ImageUploadModal() {
   const [image, setImage] = useState(null);
-  const userId = localStorage.getItem("user");
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const jwt =
+    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6dHJ1ZSwiaWF0IjoxNjI4OTI5MDA1LCJqdGkiOiI0MTdlMzk5Yi1lZTc5LTRjYmQtOWEwYS05OWM5MzhlYjYyNGEiLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoxLCJuYmYiOjE2Mjg5MjkwMDUsImV4cCI6MTYyOTAxNTQwNX0.4VYhXL3oViQbTa2urBGJuS1AhGECRoTnhkMCHJc8FWo";
+  const [imgBase64, setImgBase64] = useState("");
+  const [imgFile, setImgFile] = useState(null);
 
-  const resizeFile = (file) =>
-    new Promise((resolve) => {
-      Resizer.imageFileResizer(
-        file,
-        416,
-        416,
-        "JPEG",
-        100,
-        0,
-        (uri) => {
-          resolve(uri);
-        },
-        "file"
-      );
-    });
+  // const resizeFile = (file) =>
+  //   new Promise((resolve) => {
+  //     Resizer.imageFileResizer(
+  //       file,
+  //       416,
+  //       416,
+  //       "JPEG",
+  //       100,
+  //       0,
+  //       (uri) => {
+  //         resolve(uri);
+  //       },
+  //       "file"
+  //     );
+  //   });
 
   async function onChangeImage(e) {
     e.preventDefault();
     const originalfile = e.target.files[0];
-    try {
-      const resizedImage = await resizeFile(originalfile);
-      setImage(resizedImage);
-      console.log(resizeFile);
-    } catch (err) {
-      console.log(err);
-    }
+    console.log(originalfile);
+    setImage(originalfile);
+
+    // try {
+    //   const resizedImage = await resizeFile(originalfile);
+    //   setImage(resizedImage);
+    //   console.log(resizeFile);
+    // } catch (err) {
+    //   console.log(err);
+    // }
   }
 
-  // 업로드 이미지 백엔드 전송 버튼으로 수정 필요
-  useEffect(() => {
-    if (image !== null) {
-      const formData = new FormData();
-      formData.append("imageData", image);
-      formData.append("userId", userId);
-      axios.post(`${process.env.REACT_APP_API_URL}/imageUpload/`, formData, {
-        headers: { Authorization: "JWT " + localStorage.getItem("jwt") },
-        "content-type": "multipart/form-data",
-      });
-    }
-  }, [image]);
+  // 업로드 이미지
+  function onClickSubmit() {}
 
   function ImageUploadComponent() {
     return (
@@ -60,6 +56,7 @@ export default function ImageUploadModal() {
         >
           <input type="file" name="file" id="file" onChange={onChangeImage} />
           <input type="text"></input>
+          <button onClick={onClickSubmit}></button>
         </form>
       </div>
     );
@@ -70,6 +67,20 @@ export default function ImageUploadModal() {
   };
 
   const handleOk = () => {
+    if (image !== null) {
+      console.log("img");
+      const formData = new FormData();
+      formData.append("ImageData", image);
+      formData.append("ImageCountry", "ssss");
+      formData.append("ImageCity", "ssss");
+      formData.append("ImageDescription", "ssss");
+      axios.post(`${process.env.REACT_APP_API_URL}/fileupload/`, formData, {
+        headers: { Authorization: "JWT " + jwt },
+        "content-type": "multipart/form-data",
+      });
+    } else {
+      console.log("noimg");
+    }
     setIsModalVisible(false);
   };
 

@@ -4,9 +4,22 @@ import { createContext, useState } from "react";
 import "./App.css";
 
 const DoGoodMorningContext = createContext({});
+
 function App() {
   const [selectedCountry, setSelectedCountry] = useState("all");
-  return <AppRouter />;
+
+  return (
+    <div>
+      <DoGoodMorningContext.Provider
+        value={{
+          selectedCountry,
+          setSelectedCountry,
+        }}
+      >
+        <AppRouter />
+      </DoGoodMorningContext.Provider>
+    </div>
+  );
 }
 
 export { DoGoodMorningContext };

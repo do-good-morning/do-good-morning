@@ -7,6 +7,13 @@ import {
   Geography,
   Marker,
 } from "react-simple-maps";
+import "./MapChart.css";
+import { generatePath } from "react-router";
+
+var timestamp = Date.now();
+var date = new Date(timestamp);
+
+console.log("Date: " + date.getHours() + ":" + date.getMinutes());
 
 function MapChart() {
   const { selectedCountry, setSelectedCountry } =
@@ -16,48 +23,69 @@ function MapChart() {
     "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
   const markers = [
-    { markerOffset: 15, name: "뉴욕", coordinates: [-68.1193, -16.4897] },
-    { markerOffset: 15, name: "LA", coordinates: [-47.8825, -15.7942] },
-    { markerOffset: 15, name: "밴쿠버", coordinates: [-70.6693, -33.4489] },
-    { markerOffset: 15, name: "시드니", coordinates: [-74.0721, 4.711] },
-    { markerOffset: 15, name: "두바이", coordinates: [-78.4678, -0.1807] },
-    { markerOffset: -30, name: "브라질시티", coordinates: [-58.1551, 6.8013] },
+    { markerOffset: 15, name: "뉴욕, 미국", coordinates: [-73.1551, 43.8013] },
+    { markerOffset: 15, name: "LA, 미국", coordinates: [-115.1551, 37.801] },
+    {
+      markerOffset: 15,
+      name: "밴쿠버, 캐나다",
+      coordinates: [-115.1551, 55.801],
+    },
+    {
+      markerOffset: 15,
+      name: "브라질리아, 브라질",
+      coordinates: [-40.0721, -10.711],
+    },
+    { markerOffset: 15, name: "런던, 영국", coordinates: [-78.4678, -0.1807] },
     {
       markerOffset: -30,
-      name: "케이프타운",
+      name: "로마, 이탈리아",
+      coordinates: [18.1551, 26.8013],
+    },
+    {
+      markerOffset: -30,
+      name: "모스크바, 러시아",
       coordinates: [-57.5759, -25.2637],
     },
-    { markerOffset: 15, name: "베이징", coordinates: [-55.2038, 5.852] },
-    { markerOffset: 15, name: "런던", coordinates: [-56.1645, -34.9011] },
-    { markerOffset: 15, name: "로마", coordinates: [-66.9036, 10.4806] },
-    { markerOffset: 15, name: "모스크바", coordinates: [-77.0428, -12.0464] },
+    {
+      markerOffset: 15,
+      name: "두바이, 아랍에미리트",
+      coordinates: [-55.2038, 5.852],
+    },
+    {
+      markerOffset: 15,
+      name: "베이징, 중국",
+      coordinates: [-56.1645, -34.9011],
+    },
+    { markerOffset: 15, name: "시드니 호주", coordinates: [-66.9036, 10.4806] },
     { markerOffset: 15, name: "서울", coordinates: [126.59, 37.33] },
   ];
 
-  useEffect(() => {}, []);
   const mapMarker = markers.map(({ name, coordinates, markerOffset }) => (
     <Marker key={name} coordinates={coordinates}>
-      <div width="100px" style={{ backgroundColor: "white" }}></div>
+      <span class="tooltiptext tooltip-top">위쪽 툴팁</span>
       <text
         textAnchor="middle"
         y={markerOffset}
-        style={{ fontFamily: "system-ui", fill: "#5D5A6D", fontSize: "10px" }}
+        style={{ fill: "white", fontSize: "10px" }}
       >
         {name}
       </text>
     </Marker>
   ));
 
-  const handleOnClick = (e) => {
-    const name = e.target.name;
-    console.log(typeof name);
+  const handleOnClick = (country) => {
+    const clickCountry = country;
+    setSelectedCountry(clickCountry);
   };
 
-  console.log(selectedCountry);
   return (
     <>
-      <div className="background" style={{ backgroundColor: "black" }}>
-        <ComposableMap data-tip="" projectionConfig={{ scale: 120 }}>
+      <div className="background">
+        <ComposableMap
+          className="composableMap"
+          projection="geoEquirectangular"
+          projectionConfig={{ scale: 185 }}
+        >
           <ZoomableGroup>
             <Geographies geography={geoUrl}>
               {({ geographies }) =>
@@ -65,13 +93,10 @@ function MapChart() {
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
-                    name={geo.properties}
-                    onClick={(e) => {
-                      handleOnClick(e);
-                    }}
+                    onClick={() => handleOnClick(geo.properties["NAME"])}
                     style={{
                       default: {
-                        fill: "rgba(254, 254, 254, 0.8)",
+                        fill: "black",
                         outline: "none",
                       },
                       hover: {
