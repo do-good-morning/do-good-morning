@@ -1,0 +1,19 @@
+.background {
+  background-color: blue;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.composableMap {
+  display: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.tooltip {
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-color: black transparent transparent transparent;
+}
