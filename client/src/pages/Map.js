@@ -4,7 +4,11 @@ const Map = ({ moveSectionDown }) => {
   return (
     <>
       <div className="section group-section">
-        <MapChart moveSectionDown={moveSectionDown} />
+        <div className="map">
+          <div className="mapChart">
+            <MapChart moveSectionDown={moveSectionDown} />
+          </div>
+        </div>
       </div>
     </>
   );
