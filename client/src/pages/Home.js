@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Auth from "../components/auth/Auth";
+import { Modal, Button } from "antd";
 
-const Home = () => {
+const Home = ({ isLoggedIn }) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   return (
     <>
       <div className="home">
         <h1>HOME</h1>
       </div>
+      <Button type="primary" onClick={() => setIsModalVisible(true)}>
+        사진 업로드하기
+      </Button>
+      <Modal
+        title="Basic Modal"
+        visible={isModalVisible}
+        onOk={() => setIsModalVisible(false)}
+        onCancel={() => setIsModalVisible(false)}
+      >
+        <SignUp />
+      </Modal>
     </>
   );
 };
