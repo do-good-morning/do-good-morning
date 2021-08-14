@@ -10,6 +10,11 @@ import "./MapCmp.css";
 
 var timestamp = Date.now();
 var date = new Date(timestamp);
+// 아침시간 6시 기준 국제시간 + 6
+// 24시간 기준 1시간마다 이동
+// 국제시간의 기준위치가 위도상 가운데
+const time = (date.getUTCHours() + 19) % 24;
+const standard = ((time * 100) / 24 + 50 - 16.6) % 100;
 
 console.log("Date: " + date.getHours() + ":" + date.getMinutes());
 
@@ -99,13 +104,17 @@ function MapChart({ moveSectionDown }) {
       <div className="background">
         <div
           className="timeLine"
-          style={{ transform: `translate(30vw)` }}
+          style={{ transform: `translate(-${standard}vw)` }}
+        ></div>
+        <div
+          className="subTimeLine"
+          style={{ transform: `translate(-${standard}vw)` }}
         ></div>
         <div>
           <ComposableMap
             className="composableMap"
             projection="geoEquirectangular"
-            projectionConfig={{ scale: 190 }}
+            projectionConfig={{ scale: 210 }}
           >
             <Geographies geography={geoUrl}>
               {({ geographies }) =>

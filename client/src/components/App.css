@@ -52,11 +52,21 @@
 .timeLine {
   z-index: 0;
   opacity: 0.8;
-  transform: translate(20vw);
-  width: 30%;
+  width: 16.6%;
   height: 100%;
   background: rgb(238, 222, 207);
   position: absolute;
-  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.subTimeLine {
+  z-index: 0;
+  opacity: 0.8;
+  width: 16.6%;
+  height: 100%;
+  background: rgb(238, 222, 207);
+  position: absolute;
+  right: -100%;
   top: 0;
 }
