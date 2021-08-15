@@ -41,16 +41,19 @@
 
 - ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?&logo=javascript&logoColor=white)
 - ![React](https://img.shields.io/badge/-React-61DAFB?&logo=react&logoColor=white)
-- ![Sass](https://img.shields.io/badge/-Sass-CC6699?&logo=sass&logoColor=white)
+- ![Swiper](https://img.shields.io/badge/-Swiper-6332F6?&logo=Swiper&logoColor=white)
 
 **Back-end**
 
 - ![Python](https://img.shields.io/badge/-Python-3776AB?&logo=python&logoColor=white)
 - ![Flask](https://img.shields.io/badge/-Flask-333?&logo=flask&logoColor=white)
+- ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?&logo=mysQL&logoColor=white)
 
-**ETC**
+**DevOps**
 
 - ![Git](https://img.shields.io/badge/-Git-F05032?&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/-GitHub-181717?&logo=github&logoColor=white)
+
+- ![NGINX](https://img.shields.io/badge/-NGINX-009639?&logo=NGINX&logoColor=white) ![AWS](https://img.shields.io/badge/-AWS-FF9900?&logo=AWSAmplify&logoColor=white)
 
 <br />
 
