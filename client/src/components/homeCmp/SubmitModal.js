@@ -106,70 +106,68 @@ const SubmitModal = ({ visible, setVisible }) => {
   };
 
   return (
-    <>
-      <Modal
-        centered
-        visible={visible}
-        onOk={() => setVisible(false)}
-        onCancel={() => setVisible(false)}
-        bodyStyle={{ backgroundColor: "#d2d2d2" }}
-        width={1000}
-        footer={null}
-      >
-        <div className="submit-modal">
-          <div className="image__preview">
-            <img src={previewImg} alt="sample" />
-            <div className="image__upload">
-              <form
-                action="/"
-                id="uploadForm"
-                method="post"
-                enctype="multipart/form-data"
-              >
-                <label className="material-icons" htmlFor="img-file">
-                  upload_file
-                </label>
-                <input
-                  type="file"
-                  name="img-file"
-                  id="img-file"
-                  accept="image/*"
-                  onChange={onChangeImage}
-                  style={{ display: "none" }}
-                />
-              </form>
-            </div>
-          </div>
-          <div className="posting-info">
-            <h2>당신의 아침을 공유해주세요.</h2>
-            <CountryDropdown
-              defaultOptionLabel="Select a country, man."
-              value={country}
-              onChange={onSelectCountry}
-              className="group-select"
-            />
-            <RegionDropdown
-              blankOptionLabel="No country selected, man."
-              defaultOptionLabel="Now select a region, pal."
-              country={country}
-              value={region}
-              onChange={onSelectRegion}
-              className="group-select"
-            />
-            <input
-              type="text"
-              id="mention-input"
-              placeholder="간단한 아침 인사를 남겨주세요."
-              name="mention"
-              onChange={onWriteMention}
-            />
-            <button id="upload-btn" onChange={submitForm}>
-              아침 공유
-            </button>
+    <Modal
+      centered
+      visible={visible}
+      onOk={() => setVisible(false)}
+      onCancel={() => setVisible(false)}
+      bodyStyle={{ backgroundColor: "#d2d2d2" }}
+      width={1000}
+      footer={null}
+    >
+      <div className="submit-modal">
+        <div className="image__preview">
+          <img src={previewImg} alt="sample" />
+          <div className="image__upload">
+            <form
+              action="/"
+              id="uploadForm"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <label className="material-icons" htmlFor="img-file">
+                upload_file
+              </label>
+              <input
+                type="file"
+                name="img-file"
+                id="img-file"
+                accept="image/*"
+                onChange={onChangeImage}
+                style={{ display: "none" }}
+              />
+            </form>
           </div>
         </div>
-      </Modal>
-    </>
+        <div className="posting-info">
+          <h2>당신의 아침을 공유해주세요.</h2>
+          <CountryDropdown
+            defaultOptionLabel="Select a country, man."
+            value={country}
+            onChange={onSelectCountry}
+            className="group-select"
+          />
+          <RegionDropdown
+            blankOptionLabel="No country selected, man."
+            defaultOptionLabel="Now select a region, pal."
+            country={country}
+            value={region}
+            onChange={onSelectRegion}
+            className="group-select"
+          />
+          <input
+            type="text"
+            id="mention-input"
+            placeholder="간단한 아침 인사를 남겨주세요."
+            name="mention"
+            onChange={onWriteMention}
+          />
+          <button id="upload-btn" onChange={submitForm}>
+            아침 공유
+          </button>
+        </div>
+      </div>
+    </Modal>
   );
 };
 

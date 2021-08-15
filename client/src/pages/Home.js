@@ -26,6 +26,7 @@ import "swiper/components/navigation/navigation.min.css";
 /* COMPONENTS */
 import PostingSection from "../components/homeCmp/PostingSection";
 import GroupPostings from "../components/homeCmp/GroupPostings";
+import Rank from "./Rank";
 import Map from "./Map";
 import { DoGoodMorningContext } from "../components/App";
 import SubmitModal from "../components/homeCmp/SubmitModal";
@@ -34,6 +35,30 @@ import SubmitModal from "../components/homeCmp/SubmitModal";
 import "./css/Home.css";
 
 SwiperCore.use([Navigation]);
+const FullPage = () => (
+  <ReactFullpage
+    licenseKey={"9FA666D8-21AD41DE-A43A3694-078F442A"}
+    scrollingSpeed={900}
+    render={({ state, fullpageApi }) => {
+      return (
+        <div>
+          <ReactFullpage.Wrapper>
+            {/* SECTION 1 : 포스팅 섹션 */}
+            <PostingSection
+              moveSectionDown={() => fullpageApi.moveSectionDown()}
+            />
+            {/* SECTION 2 : 지도 섹션 */}
+            <Map moveSectionDown={() => fullpageApi.moveSectionDown()} />
+            {/* SECTION 3 : 포스팅 그룹 섹션 */}
+            <GroupPostings />
+            {/* SECTION 4 : 유저/나라 통계 섹션 */}
+            <Rank />
+          </ReactFullpage.Wrapper>
+        </div>
+      );
+    }}
+  />
+);
 
 const Home = () => {
   const history = useHistory();
@@ -188,7 +213,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div>
       <div className="logo">
         <a href="/">
           <img
@@ -201,17 +226,13 @@ const Home = () => {
       <FullPage />
       <div className="sign-btn">
         {isLoggedIn ? (
-          <>
-            <span onClick={onMoveProfile}>
-              <UserOutlined className="sign__icons" />
-            </span>
-          </>
+          <span onClick={onMoveProfile}>
+            <UserOutlined className="sign__icons" />
+          </span>
         ) : (
-          <>
-            <span onClick={showModal}>
-              <LoginOutlined className="sign__icons" />
-            </span>
-          </>
+          <span onClick={showModal}>
+            <LoginOutlined className="sign__icons" />
+          </span>
         )}
       </div>
       <div className="posting__submit">
@@ -419,31 +440,8 @@ const Home = () => {
         visible={visibleSubmitModal}
         setVisible={setVisibleSubmitModal}
       />
-    </>
+    </div>
   );
 };
-
-const FullPage = () => (
-  <ReactFullpage
-    licenseKey={"9FA666D8-21AD41DE-A43A3694-078F442A"}
-    scrollingSpeed={900}
-    render={({ state, fullpageApi }) => {
-      return (
-        <>
-          <ReactFullpage.Wrapper>
-            {/* SECTION 1 : 포스팅 섹션 */}
-            <PostingSection
-              moveSectionDown={() => fullpageApi.moveSectionDown()}
-            />
-            {/* SECTION 2 : 지도 섹션 */}
-            <Map moveSectionDown={() => fullpageApi.moveSectionDown()} />
-            {/* SECTION 3 : 포스팅 그룹 섹션 */}
-            <GroupPostings />
-          </ReactFullpage.Wrapper>
-        </>
-      );
-    }}
-  />
-);
 
 export default Home;

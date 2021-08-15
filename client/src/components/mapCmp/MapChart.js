@@ -137,134 +137,131 @@ function MapChart({ moveSectionDown }) {
     moveSectionDown();
   };
   return (
-    <>
-      {" "}
-      <div className="background">
-        <div
-          className="timeLine"
-          style={{ transform: `translate(-${standard}vw)` }}
-        ></div>
-        <div
-          className="subTimeLine"
-          style={{ transform: `translate(-${standard}vw)` }}
-        ></div>
-        <div className="bubble">
-          <img
-            className="bubble-img"
-            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
-            alt=""
-          ></img>
-        </div>
-        <div className="bubble" style={{ left: "451px", top: "163px" }}>
-          <img
-            className="bubble-img"
-            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
-            alt=""
-          ></img>
-        </div>
-        <div className="bubble" style={{ left: "224x", top: "195px" }}>
-          <img
-            className="bubble-img"
-            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
-            alt=""
-          ></img>
-        </div>
-        <div className="bubble" style={{ left: "628px", top: "455px" }}>
-          <img
-            className="bubble-img"
-            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
-            alt=""
-          ></img>
-        </div>
-        <div className="bubble" style={{ left: "845px", top: "71px" }}>
-          <img
-            className="bubble-img"
-            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
-            alt=""
-          ></img>
-        </div>
-        <div className="bubble" style={{ left: "1033px", top: "75px" }}>
-          <img
-            className="bubble-img"
-            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
-            alt=""
-          ></img>
-        </div>
-        <div className="bubble " style={{ left: "921px", top: "163px" }}>
-          <img
-            className="bubble-img"
-            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
-            alt=""
-          ></img>
-        </div>
-        <div className="bubble " style={{ left: "1114px", top: "258px" }}>
-          <img
-            className="bubble-img"
-            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
-            alt=""
-          ></img>
-        </div>
-        <div className="bubble " style={{ left: "1364px", top: "198px" }}>
-          <img
-            className="bubble-img"
-            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
-            alt=""
-          ></img>
-        </div>
-        <div className="bubble " style={{ left: "1525px", top: "198px" }}>
-          <img
-            className="bubble-img"
-            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
-            alt=""
-          ></img>
-        </div>
-        <div className="bubble " style={{ left: "1633px", top: "535px" }}>
-          <img
-            className="bubble-img"
-            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
-            alt=""
-          ></img>
-        </div>
-        <div>
-          <ComposableMap
-            className="composableMap"
-            projection="geoEquirectangular"
-            projectionConfig={{ scale: 210 }}
-          >
-            <Geographies geography={geoUrl}>
-              {({ geographies }) =>
-                geographies.map((geo) => (
-                  <Geography
-                    key={geo.rsmKey}
-                    geography={geo}
-                    name={geo.properties}
-                    onClick={(e) => {
-                      const { NAME, POP_EST } = geo.properties;
-                      handleOnClick(NAME);
-                    }}
-                    style={{
-                      default: {
-                        fill: "#324047",
-                        outline: "none",
-                      },
-                      hover: {
-                        fill: "rgb(238, 222, 207)",
-                        outline: "none",
-                      },
-                      pressed: {
-                        fill: "#E42",
-                        outline: "none",
-                      },
-                    }}
-                  />
-                ))
-              }
-            </Geographies>
-            {mapMarker}
-          </ComposableMap>
-        </div>
+    <div className="background">
+      <div
+        className="timeLine"
+        style={{ transform: `translate(-${standard}vw)` }}
+      ></div>
+      <div
+        className="subTimeLine"
+        style={{ transform: `translate(-${standard}vw)` }}
+      ></div>
+      <div className="bubble">
+        <img
+          className="bubble-img"
+          src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+          alt=""
+        ></img>
       </div>
-    </>
+      <div className="bubble" style={{ left: "451px", top: "163px" }}>
+        <img
+          className="bubble-img"
+          src="https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1392,h_1080,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/gdhkz0kxqk7hwvcvczro/%EB%89%B4%EC%9A%95%EC%84%BC%ED%8A%B8%EB%9F%B4%ED%8C%8C%ED%81%AC%EC%9E%90%EC%A0%84%EA%B1%B0%EB%8C%80%EC%97%AC%EC%9D%BC%EC%9D%BC%ED%8C%A8%EC%8A%A4.jpg"
+          alt=""
+        ></img>
+      </div>
+      <div className="bubble" style={{ left: "224x", top: "195px" }}>
+        <img
+          className="bubble-img"
+          src="https://media.istockphoto.com/photos/vienna-austria-picture-id1051391304?k=6&m=1051391304&s=612x612&w=0&h=WEzbgyIIu-4yHhzvZ-CqDE_YPtWKoMkG0XABR45Fi8I="
+          alt=""
+        ></img>
+      </div>
+      <div className="bubble" style={{ left: "628px", top: "455px" }}>
+        <img
+          className="bubble-img"
+          src="https://cf.bstatic.com/xdata/images/xphoto/1920x1080/94141974.jpg?k=68b990edaf0ba0e46eda4fdd75d903d23ea7fdbb4c1b532c7ef0d50d0923961d&o="
+          alt=""
+        ></img>
+      </div>
+      <div className="bubble" style={{ left: "845px", top: "71px" }}>
+        <img
+          className="bubble-img"
+          src="https://www.swcf.or.kr/inc/img/sub/page138_visual01.jpg"
+          alt=""
+        ></img>
+      </div>
+      <div className="bubble" style={{ left: "1033px", top: "75px" }}>
+        <img
+          className="bubble-img"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYarq72J1kPPraReii8RIrQIt2If-UtIlBrg&usqp=CAU"
+          alt=""
+        ></img>
+      </div>
+      <div className="bubble " style={{ left: "921px", top: "163px" }}>
+        <img
+          className="bubble-img"
+          src="https://pds.joins.com/news/component/htmlphoto_mmdata/202102/22/bc449b56-9127-47f6-b77a-bc1dfd2cb4db.jpg"
+          alt=""
+        ></img>
+      </div>
+      <div className="bubble " style={{ left: "1114px", top: "258px" }}>
+        <img
+          className="bubble-img"
+          src="https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile24.uf.tistory.com%2Fimage%2F9992E1495AC6E8302B6F55"
+          alt=""
+        ></img>
+      </div>
+      <div className="bubble " style={{ left: "1364px", top: "198px" }}>
+        <img
+          className="bubble-img"
+          src="https://cfd.tourtips.com/@cms_800/2018021998/gjfjc4/HCMS_%EB%B2%A0%EC%9D%B4%EC%A7%95%EC%97%B0%EB%8C%80%EC%82%AC%EA%B0%80_P000518994.JPG"
+          alt=""
+        ></img>
+      </div>
+      <div className="bubble " style={{ left: "1525px", top: "198px" }}>
+        <img
+          className="bubble-img"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShTNXsXSEA_n0HAaxuiNWkatvmDjyJ2E7eWA&usqp=CAU"
+          alt=""
+        ></img>
+      </div>
+      <div className="bubble " style={{ left: "1633px", top: "535px" }}>
+        <img
+          className="bubble-img"
+          src="https://i1.daumcdn.net/thumb/C276x260/?fname=https://blog.kakaocdn.net/dn/ctr0uE/btqESVGD84Y/lvHUqSCoGWvdn7fxjQ5ni1/img.jpg"
+          alt=""
+        ></img>
+      </div>
+      <div>
+        <ComposableMap
+          className="composableMap"
+          projection="geoEquirectangular"
+          projectionConfig={{ scale: 210 }}
+        >
+          <Geographies geography={geoUrl}>
+            {({ geographies }) =>
+              geographies.map((geo) => (
+                <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  name={geo.properties}
+                  onClick={(e) => {
+                    const { NAME, POP_EST } = geo.properties;
+                    handleOnClick(NAME);
+                  }}
+                  style={{
+                    default: {
+                      fill: "#324047",
+                      outline: "none",
+                    },
+                    hover: {
+                      fill: "rgb(238, 222, 207)",
+                      outline: "none",
+                    },
+                    pressed: {
+                      fill: "#E42",
+                      outline: "none",
+                    },
+                  }}
+                />
+              ))
+            }
+          </Geographies>
+          {mapMarker}
+        </ComposableMap>
+      </div>
+    </div>
   );
 }
 

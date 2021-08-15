@@ -90,7 +90,7 @@ const Profile = ({ userObj }) => {
   };
 
   return (
-    <>
+    <div>
       <div className="profile-page">
         <div className="logo">
           <a href="/">
@@ -146,7 +146,7 @@ const Profile = ({ userObj }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

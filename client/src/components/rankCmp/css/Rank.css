@@ -1,0 +1,132 @@
+.rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+  margin: 30px auto 0;
+  color: white;
+}
+
+.rank__inner {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
+  width: 1200px;
+  height: 550px;
+  padding: 50px 50px;
+}
+
+.user__posting {
+  height: 100%;
+  border-bottom: 1.5px solid white;
+  flex: 1;
+}
+
+.country__posting {
+  height: 100%;
+  border-bottom: 1.5px solid white;
+  flex: 1;
+}
+
+.country__like {
+  height: 100%;
+  border-bottom: 1.5px solid white;
+  flex: 1;
+}
+
+.rank__title {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  margin: 0;
+  height: 8%;
+  font-weight: 500;
+  border-bottom: 1.5px solid white;
+  color: white;
+}
+
+.rank__lists {
+  height: 92%;
+  padding: 10px 0;
+}
+
+.rank__lists__award {
+  height: 27%;
+  padding: 10px 0 0;
+  display: flex;
+}
+
+.rank__lists__user {
+  height: 64%;
+  padding: 10px 0;
+}
+
+.rank__list {
+  height: 10%;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+
+.rank__lists__award .rank__list {
+  flex: 1;
+  height: 100%;
+  display: block;
+}
+
+.rank__lists__user .rank__list {
+  height: 14.3%;
+}
+
+.rank__list:last-child {
+  border-bottom: none;
+}
+
+.rank__lists__award .rank__list:last-child {
+  border-bottom: 1px solid gray;
+}
+
+.rank__left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.rank__right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.rank__medal {
+  height: 100%;
+  padding: 6px;
+}
+
+.rank__number {
+  padding: 10px 15px;
+}
+
+.award__medal {
+  height: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.award__user {
+  height: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.award__number {
+  height: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
