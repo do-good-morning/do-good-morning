@@ -15,3 +15,10 @@ class UseDB:
         with self.con.cursor() as cursor:
             cursor.execute(sql, (user_id, image_data, image_country, image_city, image_upload_time, image_description, count_like))
         self.con.commit()
+        
+    def user_insert(self, nickname, email, pw, sign_up_date):
+        sql = ''' insert into user(`nickname`, `email`, `pw`, `sign_up_date`)
+              values(%s, %s, %s, %s);  '''
+        with self.con.cursor() as cursor:
+            cursor.execute(sql, (nickname, email, pw, sign_up_date))
+        self.con.commit()

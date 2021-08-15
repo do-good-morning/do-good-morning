@@ -15,30 +15,17 @@ bp = Blueprint('rank', __name__, url_prefix='/')
 
 @bp.route('/rank', methods=['GET'])
 def rank():
-    user_top_posting = models.db.session.query(models.Image.user_id, models.func.count(models.Image.user_id))\
-                    .group_by(models.Image.user_id)\
-                    .order_by(models.func.count(models.Image.user_id).desc())\
-                    .limit(10)\
-                    .all()
-
-    user_top_posting_lst = []
-
-    for user_id, cnt in user_top_posting:
-        user = models.User.query.filter_by(id = user_id).first()
-        user_top_posting_lst.append([user.nickname, cnt])
-
-
-    user_top_like = models.db.session.query(models.Image.user_id, models.func.sum(models.Image.count_like))\
+    user_top = models.db.session.query(models.Image.user_id, models.func.sum(models.Image.count_like) + models.func.count(models.Image.user_id) * 5)\
                     .group_by(models.Image.user_id)\
                     .order_by(models.func.sum(models.Image.count_like).desc())\
                     .limit(10)\
                     .all()
 
-    user_top_like_lst = []
+    user_top_lst = []
 
-    for user_id, cnt in user_top_like:
+    for user_id, cnt in user_top:
         user = models.User.query.filter_by(id = user_id).first()
-        user_top_like_lst.append([user.nickname, int(cnt)])
+        user_top_lst.append([user.nickname, int(cnt)])
     
 
     country_top_posting = models.db.session.query(models.Image.image_country, models.func.count(models.Image.image_country))\
@@ -62,10 +49,9 @@ def rank():
 
     for country, cnt in country_top_like:
         country_top_like_lst.append([country, int(cnt)])
-    
+
     ranking = {
-        "UserTopPosting" : user_top_posting_lst, 
-        "UserTopLike" : user_top_like_lst, 
+        "UserTop" : user_top_lst, 
         "CountryTopPosting" : country_top_posting,
         "CountryTopLike" : country_top_like_lst
         }

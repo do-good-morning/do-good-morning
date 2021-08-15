@@ -27,7 +27,7 @@ def create_app():
     CORS(app, supports_credentials=True)
     # 블루프린트
 # --------------------------------------------------------------------------- #
-    from .views import auth, landing, upload, like, image, rank, main_map
+    from .views import auth, landing, upload, like, image, rank, main_map, mypage
     app.register_blueprint(auth.bp)
     app.register_blueprint(landing.bp)
     app.register_blueprint(upload.bp)
@@ -35,6 +35,7 @@ def create_app():
     app.register_blueprint(image.bp)
     app.register_blueprint(rank.bp)
     app.register_blueprint(main_map.bp)
+    app.register_blueprint(mypage.bp)
 
 
     app.config['JWT_SECRET_KEY'] = 'doogood'
