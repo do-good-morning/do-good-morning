@@ -93,7 +93,6 @@ const SubmitModal = ({ visible, setVisible }) => {
   //
   const submitForm = () => {
     if (image !== null) {
-      console.log("img");
       const formData = new FormData();
       formData.append("ImageData", image);
       formData.append("ImageCountry", country);
