@@ -138,6 +138,7 @@ function MapChart({ moveSectionDown }) {
   };
   return (
     <>
+      {" "}
       <div className="background">
         <div
           className="timeLine"
@@ -147,6 +148,83 @@ function MapChart({ moveSectionDown }) {
           className="subTimeLine"
           style={{ transform: `translate(-${standard}vw)` }}
         ></div>
+        <div className="bubble">
+          <img
+            className="bubble-img"
+            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+            alt=""
+          ></img>
+        </div>
+        <div className="bubble" style={{ left: "451px", top: "163px" }}>
+          <img
+            className="bubble-img"
+            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+            alt=""
+          ></img>
+        </div>
+        <div className="bubble" style={{ left: "224x", top: "195px" }}>
+          <img
+            className="bubble-img"
+            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+            alt=""
+          ></img>
+        </div>
+        <div className="bubble" style={{ left: "628px", top: "455px" }}>
+          <img
+            className="bubble-img"
+            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+            alt=""
+          ></img>
+        </div>
+        <div className="bubble" style={{ left: "845px", top: "71px" }}>
+          <img
+            className="bubble-img"
+            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+            alt=""
+          ></img>
+        </div>
+        <div className="bubble" style={{ left: "1033px", top: "75px" }}>
+          <img
+            className="bubble-img"
+            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+            alt=""
+          ></img>
+        </div>
+        <div className="bubble " style={{ left: "921px", top: "163px" }}>
+          <img
+            className="bubble-img"
+            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+            alt=""
+          ></img>
+        </div>
+        <div className="bubble " style={{ left: "1114px", top: "258px" }}>
+          <img
+            className="bubble-img"
+            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+            alt=""
+          ></img>
+        </div>
+        <div className="bubble " style={{ left: "1364px", top: "198px" }}>
+          <img
+            className="bubble-img"
+            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+            alt=""
+          ></img>
+        </div>
+        <div className="bubble " style={{ left: "1525px", top: "198px" }}>
+          <img
+            className="bubble-img"
+            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+            alt=""
+          ></img>
+        </div>
+        <div className="bubble " style={{ left: "1633px", top: "535px" }}>
+          <img
+            className="bubble-img"
+            src="https://t1.daumcdn.net/cfile/tistory/2463694C53D0A5D806"
+            alt=""
+          ></img>
+        </div>
         <div>
           <ComposableMap
             className="composableMap"

@@ -58,7 +58,7 @@ const GroupPostings = () => {
     <>
       <div className="section groupPostings-section">
         <div className="groupPosting__inner">
-          <MainPosting />
+          <MainPosting />{" "}
           <div className="sub-posting__group">
             <ul>
               <li className="group-line1">

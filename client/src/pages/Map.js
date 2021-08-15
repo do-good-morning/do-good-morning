@@ -1,5 +1,6 @@
 import React from "react";
 import MapChart from "../components/mapCmp/MapChart";
+
 const Map = ({ moveSectionDown }) => {
   return (
     <>
