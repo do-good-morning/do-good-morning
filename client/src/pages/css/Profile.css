@@ -1,0 +1,31 @@
+.profile-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: #27445c;
+  overflow-y: hidden;
+}
+
+.userInfo-group {
+  padding-top: 200px;
+  width: 1300px;
+  height: 100vw;
+  margin: 0 auto;
+}
+
+.userInfo {
+  width: 300px;
+}
+
+.userInfo h2 {
+  margin-bottom: 40px;
+  font-size: 28px;
+  font-weight: 800;
+  font-family: "NanumSquareRound", sans-serif;
+  color: var(--color-white);
+}
+
+.user-postings ul li {
+  display: inline-block;
+}
+.user-postings ul li img {
+}

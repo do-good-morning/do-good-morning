@@ -1,3 +1,5 @@
+@import "~antd/dist/antd.css";
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,41 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.map {
+  background-color: red;
+  z-index: 1;
+}
+.mapChart {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+.timeLine {
+  z-index: 0;
+  opacity: 0.7;
+  width: 16.6%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgb(188, 188, 188),
+    rgb(235, 169, 108) 80%,
+    rgb(188, 188, 188)
+  );
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.subTimeLine {
+  z-index: 0;
+  opacity: 0.7;
+  width: 16.6%;
+  height: 100%;
+  background: rgb(238, 222, 207);
+  position: absolute;
+  right: -100%;
+  top: 0;
 }
