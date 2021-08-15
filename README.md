@@ -47,6 +47,7 @@
 
 - ![Python](https://img.shields.io/badge/-Python-3776AB?&logo=python&logoColor=white)
 - ![Flask](https://img.shields.io/badge/-Flask-333?&logo=flask&logoColor=white)
+- ![Mysql](https://img.shields.io/badge/-Mysql-4479A1?&logo=Mysql&logoColor=white)
 
 **ETC**
 
@@ -67,6 +68,21 @@
 <div id="4"></div>
 
 ## 📄 주요 페이지
+
+ - ### home
+  ![image](https://user-images.githubusercontent.com/82890721/129465719-7a86ba22-e216-478c-b337-16adbdd2ebe0.png)
+ - ### sign-in
+  ![image](https://user-images.githubusercontent.com/82890721/129465771-ecd05be1-fc37-493b-987c-7f173dafec6c.png)
+ - ### sign-up
+  ![image](https://user-images.githubusercontent.com/82890721/129465779-af69081b-9866-4392-8e31-34fea06569a1.png)
+ - ### map
+  ![image](https://user-images.githubusercontent.com/82890721/129465736-381ef1be-e6fa-4a91-8cb0-e2728a7415b7.png)
+ - ### photo-all region
+  ![image](https://user-images.githubusercontent.com/82890721/129465741-36d3f07b-2c8b-4620-a72d-3e94645afb2b.png)
+ - ### leaderboard
+  ![image](https://user-images.githubusercontent.com/82890721/129465745-31f51022-8cce-4532-97d9-eee20aa777c7.png)
+ - ### leaderboard submit
+  ![image](https://user-images.githubusercontent.com/82890721/129465760-804049a1-027c-4f7a-8fd8-7f22fc35d5a1.png)
 
 <br />
 
