@@ -434,7 +434,7 @@ const FullPage = () => (
               moveSectionDown={() => fullpageApi.moveSectionDown()}
             />
             {/* SECTION 2 : 지도 섹션 */}
-            <Map />
+            <Map moveSectionDown={() => fullpageApi.moveSectionDown()} />
             {/* SECTION 3 : 포스팅 그룹 섹션 */}
             <GroupPostings />
             {/* SECTION 4 : 유저/나라 통계 섹션 */}

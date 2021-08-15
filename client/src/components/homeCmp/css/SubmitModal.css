@@ -9,18 +9,18 @@
 }
 
 .image__preview {
-  width: 600px;
+  width: 450px;
   margin-right: 20px;
 }
 
 .image__preview img {
-  width: 600px;
-  height: 400px;
+  width: 450px;
+  height: 450px;
   border-radius: 5px;
 }
 
 .image__upload {
-  width: 600px;
+  width: 450px;
   margin: 0 auto;
 }
 .image__upload label {
@@ -44,12 +44,58 @@
 }
 
 .posting-info {
-  width: 400px;
+  width: 500px;
   padding: 50px 0;
-  border: 2px solid blue;
 }
 
 .posting-info h2 {
-  font-size: 20px;
+  margin-bottom: 30px;
+  font-size: 24px;
   font-weight: 700;
+  font-family: "NanumSquareRound", sans-serif;
+}
+
+.group-select {
+  width: 220px;
+  height: 36px;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: "NanumSquareRound", sans-serif;
+}
+
+.group-select:nth-child(1) {
+  margin-right: 20px;
+}
+
+#mention-input {
+  width: 440px;
+  height: 200px;
+  margin-top: 30px;
+  padding: 15px;
+  border: 2px solid var(--color-light-gray);
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: "NanumSquareRound", sans-serif;
+}
+
+#upload-btn {
+  float: right;
+  margin-top: 20px;
+  margin-right: 40px;
+  padding: 5px 50px;
+  border: 3px solid var(--color-deep-orange);
+  background-color: transparent;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "NanumSquareRound", sans-serif;
+  color: var(--color-deep-orange);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#upload-btn:hover {
+  border: 3px solid var(--color-orange);
+  background-color: var(--color-orange);
+  color: var(--color-white);
 }
