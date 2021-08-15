@@ -3,7 +3,7 @@ import "./css/Profile.css";
 
 const Profile = ({ userObj }) => {
   return (
-    <>
+    <div>
       <div className="logo">
         <a href="/">
           <span>DoGoodMorning</span>
@@ -13,7 +13,7 @@ const Profile = ({ userObj }) => {
         <span>{userObj.userNickname}</span>
         <span>{userObj.userEmail}</span>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -32,48 +32,44 @@ const GroupPostings = () => {
   if (imageList.length) {
     console.log(imageList["0"]);
     return (
-      <>
-        <div className="section groupPostings-section">
-          <div className="groupPosting__inner">
-            <MainPosting data={imageList["0"]} />
-            <div className="sub-posting__group">
-              <ul>
-                <li className="group-line1">
-                  <SubPosting data={imageList["1"]} />
-                  <SubPosting data={imageList["2"]} />
-                </li>
-                <li className="group-line2">
-                  <SubPosting data={imageList["3"]} />
-                  <SubPosting data={imageList["4"]} />
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  } else {
-  }
-  return (
-    <>
       <div className="section groupPostings-section">
         <div className="groupPosting__inner">
-          <MainPosting />{" "}
+          <MainPosting data={imageList["0"]} />
           <div className="sub-posting__group">
             <ul>
               <li className="group-line1">
-                <SubPosting />
-                <SubPosting />
+                <SubPosting data={imageList["1"]} />
+                <SubPosting data={imageList["2"]} />
               </li>
               <li className="group-line2">
-                <SubPosting />
-                <SubPosting />
+                <SubPosting data={imageList["3"]} />
+                <SubPosting data={imageList["4"]} />
               </li>
             </ul>
           </div>
         </div>
       </div>
-    </>
+    );
+  } else {
+  }
+  return (
+    <div className="section groupPostings-section">
+      <div className="groupPosting__inner">
+        <MainPosting />{" "}
+        <div className="sub-posting__group">
+          <ul>
+            <li className="group-line1">
+              <SubPosting />
+              <SubPosting />
+            </li>
+            <li className="group-line2">
+              <SubPosting />
+              <SubPosting />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   );
 };
 
