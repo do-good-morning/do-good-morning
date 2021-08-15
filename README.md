@@ -80,10 +80,12 @@
 
 ## 💻 실행 방법
 
-1. **실행 1**
+1. **서버**
 
 ```bash
-$
+$export FLASK_APP=back
+$export FLASK_ENV=development
+$flask run
 ```
 
 2. **실행 2**
