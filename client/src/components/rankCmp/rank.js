@@ -80,15 +80,8 @@ export default function ImageUploadModal() {
   const userPostingBest = userPostingRank.slice(3).map((user, id) => (
     <div key={id} className="rank__list">
       <div className="rank__left">
-        {id === 0 ? (
-          <img className="rank__medal" src="images/gold.png" alt="1" />
-        ) : id === 1 ? (
-          <img className="rank__medal" src="images/silver.png" alt="2" />
-        ) : id === 2 ? (
-          <img className="rank__medal" src="images/bronze.png" alt="3" />
-        ) : (
-          <span className="rank__number">{id + 1}</span>
-        )}
+        <span className="rank__number">{id + 4}</span>
+
         <span>{user[0]}</span>
       </div>
       <div className="rank__right">
