@@ -1,7 +1,7 @@
 <div align="center">
   <br />
-  <img src="https://user-images.githubusercontent.com/82890721/129465530-90447ab5-a484-4cc5-865e-f31cdf1ea95a.png" height="150px" />
-  <h1>두굿모닝(Do Good morning)</h1>
+  <img src="https://user-images.githubusercontent.com/82890721/129465840-197f07f9-9946-4604-91b6-3abe2a6c2d92.png" height="150px" />
+<!--   <h1>두굿모닝(Do Good morning)</h1> -->
   <a href="#">
   <!-- <img src="https://img.shields.io/badge/GitHub%20Pages-Active-AEF359?&logo=github&logoColor=white" alt="GitHub-Pages" /> -->
   </a>
