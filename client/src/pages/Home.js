@@ -26,6 +26,7 @@ import "swiper/components/navigation/navigation.min.css";
 /* COMPONENTS */
 import PostingSection from "../components/homeCmp/PostingSection";
 import GroupPostings from "../components/homeCmp/GroupPostings";
+import Rank from "./Rank";
 import Map from "./Map";
 import { DoGoodMorningContext } from "../components/App";
 import SubmitModal from "../components/homeCmp/SubmitModal";
@@ -436,6 +437,8 @@ const FullPage = () => (
             <Map />
             {/* SECTION 3 : 포스팅 그룹 섹션 */}
             <GroupPostings />
+            {/* SECTION 4 : 유저/나라 통계 섹션 */}
+            <Rank />
           </ReactFullpage.Wrapper>
         </>
       );
