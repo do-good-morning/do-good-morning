@@ -2,19 +2,103 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router";
 import { LoginOutlined } from "@ant-design/icons";
 import "./css/Profile.css";
-import SubPosting from "../components/groupCmp/SubPosting";
+import MyPosting from "../components/groupCmp/MyPosting";
 import { DoGoodMorningContext } from "../components/App";
 
 const Profile = ({ userObj }) => {
   const history = useHistory();
   const { isLoggedIn } = useContext(DoGoodMorningContext);
 
+  const data1 = {
+    Nickname: userObj.userNickname,
+    ImageUploadTime: "8:10",
+    ImgUrl: "./images/example1.jpg",
+    ImageCity: "Vancouver",
+    ImageCountry: "Canada",
+  };
+
+  const data2 = {
+    Nickname: userObj.userNickname,
+    ImageUploadTime: "8:46",
+    ImgUrl: "./images/example2.jpg",
+    ImageCity: "Toronto",
+    ImageCountry: "Canada",
+  };
+
+  const data3 = {
+    Nickname: userObj.userNickname,
+    ImageUploadTime: "9:12",
+    ImgUrl: "./images/example3.jpg",
+    ImageCity: "Toronto",
+    ImageCountry: "Canada",
+  };
+
+  const data4 = {
+    Nickname: userObj.userNickname,
+    ImageUploadTime: "8:10",
+    ImgUrl: "./images/example4.jpg",
+    ImageCity: "Toronto",
+    ImageCountry: "Canada",
+  };
+
+  const data5 = {
+    Nickname: userObj.userNickname,
+    ImageUploadTime: "7:23",
+    ImgUrl: "./images/example5.jpg",
+    ImageCity: "Toronto",
+    ImageCountry: "Canada",
+  };
+
+  const data6 = {
+    Nickname: userObj.userNickname,
+    ImageUploadTime: "08:12",
+    ImgUrl: "./images/example6.jpg",
+    ImageCity: "Toronto",
+    ImageCountry: "Canada",
+  };
+
+  const data7 = {
+    Nickname: userObj.userNickname,
+    ImageUploadTime: "6:52",
+    ImgUrl: "./images/example7.jpg",
+    ImageCity: "Toronto",
+    ImageCountry: "Canada",
+  };
+
+  const data8 = {
+    Nickname: userObj.userNickname,
+    ImageUploadTime: "7:10",
+    ImgUrl: "./images/example8.jpg",
+    ImageCity: "Toronto",
+    ImageCountry: "Canada",
+  };
+
+  const data9 = {
+    Nickname: userObj.userNickname,
+    ImageUploadTime: "8:00",
+    ImgUrl: "./images/example9.jpg",
+    ImageCity: "Toronto",
+    ImageCountry: "Canada",
+  };
+
+  const data10 = {
+    Nickname: userObj.userNickname,
+    ImageUploadTime: "9:10",
+    ImgUrl: "./images/example10.jpg",
+    ImageCity: "Quebec",
+    ImageCountry: "Canada",
+  };
+
   return (
     <>
       <div className="profile-page">
         <div className="logo">
           <a href="/">
-            <span>DoGoodMorning</span>
+            <img
+              src="./images/dgm-logo.png"
+              alt="DoGoodMorning"
+              style={{ width: 100 }}
+            />
           </a>
         </div>
         <div className="sign-btn">
@@ -34,29 +118,29 @@ const Profile = ({ userObj }) => {
           <div className="user-postings">
             <ul>
               <li className="group-line1">
-                <SubPosting />
+                <MyPosting data={data1} />
                 <br />
-                <SubPosting />
+                <MyPosting data={data2} />
               </li>
               <li className="group-line2">
-                <SubPosting />
+                <MyPosting data={data3} />
                 <br />
-                <SubPosting />
+                <MyPosting data={data4} />
               </li>
               <li className="group-line3">
-                <SubPosting />
+                <MyPosting data={data5} />
                 <br />
-                <SubPosting />
+                <MyPosting data={data6} />
               </li>
               <li className="group-line4">
-                <SubPosting />
+                <MyPosting data={data7} />
                 <br />
-                <SubPosting />
+                <MyPosting data={data8} />
               </li>
               <li className="group-line5">
-                <SubPosting />
+                <MyPosting data={data9} />
                 <br />
-                <SubPosting />
+                <MyPosting data={data10} />
               </li>
             </ul>
           </div>

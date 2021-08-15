@@ -166,7 +166,6 @@ const Home = () => {
 
   /* 마이페이지 이동 핸들러 */
   const onMoveProfile = () => {
-    alert("마이페이지 이동");
     history.push("/profile");
   };
 
@@ -192,7 +191,11 @@ const Home = () => {
     <>
       <div className="logo">
         <a href="/">
-          <span>DoGoodMorning</span>
+          <img
+            src="./images/dgm-logo.png"
+            alt="DoGoodMorning"
+            style={{ width: 100 }}
+          />
         </a>
       </div>
       <FullPage />

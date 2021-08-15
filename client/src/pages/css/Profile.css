@@ -1,7 +1,7 @@
 .profile-page {
   width: 100vw;
   height: 100vh;
-  background-color: #a9a9a9;
+  background-color: #27445c;
   overflow-y: hidden;
 }
 
@@ -21,6 +21,7 @@
   font-size: 28px;
   font-weight: 800;
   font-family: "NanumSquareRound", sans-serif;
+  color: var(--color-white);
 }
 
 .user-postings ul li {
