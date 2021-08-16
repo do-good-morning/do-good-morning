@@ -153,6 +153,8 @@
 | 이주현 | Back-end  |     -     |
 | 윤은비 | Designer  |     -     |
 
+<br />
+
 <div id="8"></div>
 
 ## 📅 개발 기간 및 일정
