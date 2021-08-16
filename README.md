@@ -53,11 +53,6 @@
 
 &nbsp;&nbsp;서로의 아침 창밖 풍경을 공유해 두근거리는 아침 그리고 굿모닝을 실천하게 해주는 두굿모닝 서비스입니다.  
 &nbsp;&nbsp;세계 각국에서 업로드하는 사진들을 통해 창밖 풍경 여행을 즐기실 수 있습니다.
-<br />
-
-[**🔗 배포된 웹 서비스로 바로가기 Click !**](#) 👈
-
-> 새 창 열기 방법 : CTRL+click (on Windows and Linux) | CMD+click (on MacOS)
 
 <br />
 
