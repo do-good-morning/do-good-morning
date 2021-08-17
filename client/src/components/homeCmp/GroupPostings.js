@@ -9,7 +9,6 @@ import "./css/GroupPostings.css";
 const GroupPostings = () => {
   const { selectedCountry } = useContext(DoGoodMorningContext);
   const [imageList, setImageList] = useState([]);
-  const [postingList, setPostingList] = useState("");
   const api = process.env.REACT_APP_API_URL;
 
   console.log("LAST", selectedCountry);

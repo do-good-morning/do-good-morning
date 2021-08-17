@@ -4,8 +4,8 @@ import "./css/MainPosting.css";
 
 const MainPosting = ({ data }) => {
   if (data) {
-    console.log("data", data.Nickname);
     const imageUrl = process.env.REACT_APP_API_URL + "/img/" + data.ImageData;
+
     return (
       <div className="main-posting">
         <img className="image-lg" src={imageUrl} alt="sample" />

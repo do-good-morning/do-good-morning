@@ -1,19 +1,10 @@
-/* REACT */
 import React, { useState, useEffect } from "react";
-
-/* AXIOS */
 import axios from "axios";
-
-/* SWIPER */
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
-
-/* COMPONENTS */
 import Posting from "./Posting";
-
-/* CSS */
 import "./css/PostingSection.css";
 
 SwiperCore.use([Navigation]);
@@ -28,7 +19,6 @@ const PostingSection = ({ moveSectionDown }) => {
     (async function GetPostingImages() {
       axios.get(`${api}/landing`).then((response) => {
         setImageList(response.data.images);
-        // console.log(response.data.images);
       });
 
       return;

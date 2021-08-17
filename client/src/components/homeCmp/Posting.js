@@ -1,21 +1,15 @@
-/* REACT */
 import React from "react";
-
-/* ANT DESIGN */
 import {
   InfoCircleOutlined,
   LikeOutlined,
   ShareAltOutlined,
 } from "@ant-design/icons";
-
-/* CSS */
 import "./css/Posting.css";
 
 const Posting = ({ data }) => {
   if (data) {
-    // console.log(data);
     const imageUrl = process.env.REACT_APP_API_URL + "/img/" + data.ImageData;
-    // console.log(imageUrl);
+
     return (
       <div className="posting">
         {/* 포스팅 사진 */}
@@ -39,7 +33,6 @@ const Posting = ({ data }) => {
       </div>
     );
   } else {
-    console.log("hello");
     return (
       <div className="posting">
         {/* 포스팅 사진 */}

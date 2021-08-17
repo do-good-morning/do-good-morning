@@ -5,7 +5,6 @@ import "./css/Rank.css";
 export default function ImageUploadModal() {
   const [countryLikeRank, setCountryLikeRank] = useState([]);
   const [countryPostingRank, setCountryPostingRank] = useState([]);
-  const [userLikeRank, setUserLikeRank] = useState([]);
   const [userPostingRank, setUserPostingRank] = useState([]);
 
   // 사람 순위 출력 3명

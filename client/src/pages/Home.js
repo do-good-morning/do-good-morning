@@ -1,14 +1,7 @@
-/* REACT */
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-
-/* AXIOS */
 import axios from "axios";
-
-/* FULL PAGE */
 import ReactFullpage from "@fullpage/react-fullpage";
-
-/* ANT-DESIGN */
 import {
   LoginOutlined,
   UserOutlined,
@@ -16,28 +9,22 @@ import {
 } from "@ant-design/icons";
 import { Modal, Form, Input, Button } from "antd";
 import "antd/dist/antd.css";
-
-/* SWIPER */
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper/core";
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
-
-/* COMPONENTS */
 import PostingSection from "../components/homeCmp/PostingSection";
 import GroupPostings from "../components/homeCmp/GroupPostings";
 import Rank from "./Rank";
 import Map from "./Map";
 import { DoGoodMorningContext } from "../components/App";
 import SubmitModal from "../components/homeCmp/SubmitModal";
-
-/* CSS */
 import "./css/Home.css";
 
 SwiperCore.use([Navigation]);
 const FullPage = () => (
   <ReactFullpage
-    licenseKey={"9FA666D8-21AD41DE-A43A3694-078F442A"}
+    licenseKey={"LICENSE-KEY"}
     scrollingSpeed={900}
     render={({ state, fullpageApi }) => {
       return (
@@ -114,9 +101,6 @@ const Home = () => {
 
   // 로그인 버튼 핸들러
   const onSignInHandler = (event) => {
-    console.log(`email${emailSI}`);
-    console.log(`pwd${passwordSI}`);
-
     event.preventDefault();
 
     if (!emailSI || !passwordSI) {
@@ -167,8 +151,6 @@ const Home = () => {
           withCredentials: true,
         })
         .then((response) => {
-          console.log(response);
-
           if (response.status === 200) {
             setFormState("loggedin");
             alert("회원가입 성공!");
@@ -177,8 +159,6 @@ const Home = () => {
             localStorage.setItem("email", response.data.Email);
 
             window.location.replace("/");
-          } else {
-            console.log(response.data);
           }
         })
         .catch((error) => {
@@ -208,7 +188,6 @@ const Home = () => {
     }, 2000);
   };
   const handleCancel = () => {
-    console.log("Clicked cancel button");
     setVisible(false);
   };
 

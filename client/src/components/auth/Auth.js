@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
-import { formState, setFormState } from "../App";
 import { DoGoodMorningContext } from "../App";
 
 function SignUp() {
@@ -46,7 +45,6 @@ function SignUp() {
           withCredentials: true,
         })
         .then((response) => {
-          console.log(response);
           if (response.status === 200) {
             setFormState("loggedin");
             alert("회원가입 성공!");
@@ -56,8 +54,6 @@ function SignUp() {
             localStorage.setItem("email", response.data.Email);
 
             window.location.replace("/");
-          } else {
-            console.log(response.data);
           }
         })
         .catch((error) => {

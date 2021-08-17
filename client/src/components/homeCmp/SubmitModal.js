@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Modal } from "antd";
 import "./css/SubmitModal.css";
 import axios from "axios";
 import Resizer from "react-image-file-resizer";
-import {
-  CountryDropdown,
-  RegionDropdown,
-  CountryRegionData,
-} from "react-country-region-selector";
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 const SubmitModal = ({ visible, setVisible }) => {
   const [previewImg, setPreviewImg] = useState("./images/submit_sample.png");
@@ -34,7 +30,6 @@ const SubmitModal = ({ visible, setVisible }) => {
   const onChange = (e) => {
     const { name, value } = e.target;
     setInputs({ ...inputs, [name]: value });
-    console.log(inputs);
   };
 
   const onWriteMention = (event) => {
@@ -43,7 +38,6 @@ const SubmitModal = ({ visible, setVisible }) => {
     } = event;
 
     if (name === "mention") {
-      console.log(value);
       setMention(value);
     }
   };

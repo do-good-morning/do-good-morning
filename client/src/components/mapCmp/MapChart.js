@@ -22,7 +22,6 @@ console.log("Date: " + date.getHours() + ":" + date.getMinutes());
 
 function MapChart({ moveSectionDown }) {
   const { setSelectedCountry } = useContext(DoGoodMorningContext);
-  const { cityList, setCityList } = useState([]);
 
   const [markers, setMarkers] = useState([
     { markerOffset: 15, name: "뉴욕, 미국", coordinates: [-73.1551, 43.8013] },
@@ -107,12 +106,6 @@ function MapChart({ moveSectionDown }) {
             d="M20.8742 42.4265C20.4932 40.1123 22.5068 43.1123 19.1258 40.4265L15.8254 33.4856C15.4551 32.8191 15.937 35 16.6995 35H23.3005C24.063 35 24.5449 35.8191 24.1746 36.4856L20.8742 42.4265Z"
             fill="white"
           />
-          {/* <image
-            width="40"
-            height="40"
-            clip-path="url(#bubblerect)"
-            href="http://ec2-3-36-87-84.ap-northeast-2.compute.amazonaws.com:5000/img/sample_50.png"
-          /> */}
           <path />
         </svg>
         <g style={{ objectFit: "cover" }}></g>

@@ -1,5 +1,4 @@
 import React from "react";
-import { LikeOutlined } from "@ant-design/icons";
 import "./css/SubPosting.css";
 
 const MyPosting = ({ data }) => {

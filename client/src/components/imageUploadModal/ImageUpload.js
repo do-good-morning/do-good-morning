@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Resizer from "react-image-file-resizer";
 import { Modal, Button, Input } from "antd";

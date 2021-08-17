@@ -1,14 +1,9 @@
-/* REACT */
 import React from "react";
-
-/* ANT DESIGN */
 import {
   InfoCircleOutlined,
   LikeOutlined,
   ShareAltOutlined,
 } from "@ant-design/icons";
-
-/* CSS */
 import "./css/Posting.css";
 
 const Postingtemp = (data) => {
@@ -41,4 +36,4 @@ const Postingtemp = (data) => {
   );
 };
 
-export default Posting;
+export default Postingtemp;
