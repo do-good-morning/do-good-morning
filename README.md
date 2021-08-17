@@ -149,7 +149,7 @@
 | 김수영 | Front-end |     -     |
 | 박정환 | Front-end |     -     |
 | 손상준 | Front-end |     인포메이션 아키텍쳐 작성 <br/> 메인 페이지 업로드 기능 개발 <br/> 메인 페이지 게시물 기능 개발  <br/>  세계지도 페이지 검색 기능 개발 <br/> 베스트 게시물 기능 개발 |
-| 강인선 | Back-end  |     -     |
+| 강인선 | Back-end  |     서버 아키텍쳐 작성 <br/> DB설계 <br/> auth API개발  <br/>  게시물 API개발(이미지, 좋아요 등) <br/> 리더보드 API개발    |
 | 이주현 | Back-end  |     -     |
 | 윤은비 | Designer  |     -     |
 
