@@ -6,7 +6,6 @@
 
 1. [**Git Rules**](#1)
 2. [**Front-end Rules**](#2)
-3. [**Back-end Rules**](#3)
 
 <br />
 
@@ -60,9 +59,3 @@ type : subject
 
 - **Prettier** default 값으로 통일
 - 탭 공백 2칸으로 수정
-
-<br />
-
-<div id="3"></div>
-
-## :satellite: Back-end Rules
