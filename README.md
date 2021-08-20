@@ -2,7 +2,7 @@
   <br />
   <img src="./images/dgm_logo.png" height="150px" />
   <h1>두굿모닝 (Do Good morning)</h1>
-  <img src="https://img.shields.io/badge/AWS%20-Deactivate-ff7f00?&logo=AWSAmplify&logoColor=white" alt="GitHub-Pages" />
+  <img src="https://img.shields.io/badge/AWS%20-Deactivate-ff7f00?&logo=AWSAmplify&logoColor=white" alt="AWS" />
   <br />
 </div>
 
