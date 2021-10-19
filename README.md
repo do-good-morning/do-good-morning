@@ -144,14 +144,79 @@
 
 ## 👪 개발 팀 소개
 
-|                    이름                    |   역할    |                                                                                                                                    개발 내용                                                                                                                                     |
-| :----------------------------------------: | :-------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|    [김수영](https://github.com/ksy9926)    | Front-end |                                                          로그인 및 회원가입 기능 개발<br />세계지도 페이지 타임존 기능 개발<br />랭킹 페이지 마크업 및 스타일링 작업<br />AWS VM 배포 및 관리                                                           |
-| [박정환](https://github.com/JeongHwan-dev) | Front-end | **메인 페이지 (게시물 섹션)** 마크업 및 스타일링 작업<br />**메인 페이지 (베스트 게시물 섹션)** 마크업 및 스타일링 작업<br />**마이페이지** 마크업 및 스타일링 작업<br />**로그인 및 회원가입 모달** 마크업 및 스타일링 작업<br />**게시물 업로드 모달** 마크업 및 스타일링 작업 |
-|  [손상준](https://github.com/SonSangjoon)  | Front-end |                                                          인포메이션 아키텍쳐 작성<br />메인 페이지 업로드 기능 개발<br />메인 페이지 게시물 기능 개발<br />세계지도 페이지 검색 기능 개발<br />베스트 게시물 기능 개발                                                           |
-|  [강인선](https://github.com/insun-kang)   | Back-end  |                                                                                  서버 아키텍쳐 작성<br />DB설계<br />auth API개발<br />게시물 API개발(이미지, 좋아요 등)<br />리더보드 API개발                                                                                   |
-| [이주현](https://github.com/David-Lee-dev) | Back-end  |                                                                                                                                        -                                                                                                                                         |
-|                   윤은비                   | Designer  |                                                                                                                  UI/UX 설계<br />Figma를 통한 와이어프레임 작성                                                                                                                  |
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/David-Lee-dev">
+        <img src="https://avatars.githubusercontent.com/u/57592095?v=4" alt="이주현 프로필" />
+      </a>
+    </td>
+    <td align="center">
+      <img src="./images/profile-image-sample.jpg" alt="윤은비 프로필" width="55%" />
+    </td>
+    <td align="center">
+      <a href="https://github.com/ksy9926">
+        <img src="https://avatars.githubusercontent.com/u/72131649?v=4" alt="김수영 프로필" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/JeongHwan-dev">
+        <img src="https://avatars.githubusercontent.com/u/68452755?v=4" alt="박정환 프로필" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/SonSangjoon">
+        <img src="https://avatars.githubusercontent.com/u/74908906?v=4" alt="손상준 프로필" />
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/insun-kang">
+        <img src="https://avatars.githubusercontent.com/u/82890721?v=4" alt="강인선 프로필" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/David-Lee-dev">
+        이주현<br />(기획)
+      </a>
+    </td>
+    <td align="center">
+      윤은비<br />(Designer)
+    </td>
+    <td align="center">
+      <a href="https://github.com/ksy9926">
+        김수영<br />(Front-end)
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/JeongHwan-dev">
+        박정환<br />(Front-end)
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/SonSangjoon">
+        손상준<br />(Front-end)
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/insun-kang">
+        강인선<br />(Back-end)
+      </a>
+    </td>
+  </tr>
+</table>
+
+<br />
+
+|  이름  |   역할    |                                                                                                                          개발 내용                                                                                                                           |
+| :----: | :-------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| 이주현 |   기획    |                                                                                                                              -                                                                                                                               |
+| 윤은비 | Designer  |                                                                                                        UI/UX 설계<br />Figma를 통한 와이어프레임 작성                                                                                                        |
+| 김수영 | Front-end |                                                             로그인 및 회원가입 기능 개발<br />세계지도 페이지 타임존 기능 개발<br />랭킹 페이지 마크업 및 스타일링 작업<br />AWS VM 배포 및 관리                                                             |
+| 박정환 | Front-end | 메인 페이지 (게시물 섹션) 마크업 및 스타일링 작업<br />메인 페이지 (베스트 게시물 섹션) 마크업 및 스타일링 작업<br />마이페이지 마크업 및 스타일링 작업<br />로그인 및 회원가입 모달 마크업 및 스타일링 작업<br />게시물 업로드 모달 마크업 및 스타일링 작업 |
+| 손상준 | Front-end |                                                인포메이션 아키텍쳐 작성<br />메인 페이지 업로드 기능 개발<br />메인 페이지 게시물 기능 개발<br />세계지도 페이지 검색 기능 개발<br />베스트 게시물 기능 개발                                                 |
+| 강인선 | Back-end  |                                                                        서버 아키텍쳐 작성<br />DB설계<br />auth API개발<br />게시물 API개발(이미지, 좋아요 등)<br />리더보드 API개발                                                                         |
 
 <br />
 
