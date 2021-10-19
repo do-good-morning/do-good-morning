@@ -152,7 +152,7 @@
       </a>
     </td>
     <td align="center">
-      <img src="./images/profile-image-sample.jpg" alt="윤은비 프로필" width="55%" />
+      <img src="./images/profile-image-sample.jpg" alt="윤은비 프로필" width="400px" />
     </td>
     <td align="center">
       <a href="https://github.com/ksy9926">
