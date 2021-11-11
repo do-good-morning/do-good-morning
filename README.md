@@ -13,7 +13,7 @@
 1. [**기술 스택**](#3)
 1. [**주요 기능**](#4)
 1. [**프로젝트 구성도**](#5)
-1. [**주요 페이지 및 기능 소개**](#6)
+1. [**데모 영상**](#6)
 1. [**개발 팀 소개**](#7)
 1. [**개발 기간**](#8)
 1. [**실행 방법**](#9)
@@ -60,23 +60,33 @@
 
 ## 🛠 기술 스택
 
-**Front-end**
+### **Front-end**
 
-- ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?&logo=javascript&logoColor=white)
-- ![React](https://img.shields.io/badge/-React-61DAFB?&logo=react&logoColor=white)
-- ![Ant Design](https://img.shields.io/badge/-Ant_Design-0170FE?&logo=AntDesign&logoColor=white) ![Swiper](https://img.shields.io/badge/-Swiper-6332F6?&logo=Swiper&logoColor=white)
+| <img src="https://profilinator.rishav.dev/skills-assets/html5-original-wordmark.svg" alt="HTML5" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/css3-original-wordmark.svg" alt="CSS3" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg" alt="JavaScript" width="50px" height="50px" /> |
+| :----------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
+|                                                             HTML5                                                              |                                                             CSS3                                                             |                                                         JavaScript(ES6)                                                         |
 
-**Back-end**
+| <img src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React.js" width="50px" height="50px" /> | <img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" alt="Ant Design" width="50px" height="50px" /> | <img src="https://camo.githubusercontent.com/9f29e3d7fc79b01485632a99af0fd6a0f65d921adc720d0d30cdce9475caa9ca/68747470733a2f2f6769746875622e7375726d6f6e2e6d652f696d616765732f636f6d6d6f6e2f7377697065722d6c6f676f2e737667" alt="Swiper" width="50px" height="50px" /> |
+| :-------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                             React.js                                                              |                                                          Ant Design                                                           |                                                                                                                                 Swiper                                                                                                                                 |
 
-- ![Python](https://img.shields.io/badge/-Python-3776AB?&logo=python&logoColor=white)
-- ![Flask](https://img.shields.io/badge/-Flask-333?&logo=flask&logoColor=white)
-- ![MySQL](https://img.shields.io/badge/-MySQL-4479A1?&logo=mysQL&logoColor=white)
+### **Back-end**
 
-**DevOps**
+| <img src="https://profilinator.rishav.dev/skills-assets/python-original.svg" alt="Python" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/flask.png" alt="Flask" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/mysql-original-wordmark.svg" alt="MySQL" width="50px" height="50px" /> |
+| :---------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
+|                                                         Python                                                          |                                                    Flask                                                     |                                                             MySQL                                                              |
 
-- ![Git](https://img.shields.io/badge/-Git-F05032?&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/-GitHub-181717?&logo=github&logoColor=white)
+### **DevOps**
 
-- ![NGINX](https://img.shields.io/badge/-NGINX-009639?&logo=NGINX&logoColor=white) ![AWS](https://img.shields.io/badge/-AWS-FF9900?&logo=AWSAmplify&logoColor=white)
+| <img src="https://profilinator.rishav.dev/skills-assets/nginx-original.svg" alt="NGiNX" width="50px" height="50px" /> | <img src="https://profilinator.rishav.dev/skills-assets/amazonwebservices-original-wordmark.svg" alt="AWS" width="50px" height="50px" /> |
+| :-------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                         NGiNX                                                         |                                                                   AWS                                                                    |
+
+### **Version Control**
+
+| <img src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git" width="50px" height="50px" /> | <img src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg" alt="GitHub" width="50px" height="50px" /> |
+| :---------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------: |
+|                                                        Git                                                        |                                                         GitHub                                                         |
 
 <br />
 
@@ -108,7 +118,7 @@
 
 <div id="6"></div>
 
-## 📄 주요 페이지 및 기능 소개
+## 🎥 데모 영상
 
 |                               메인 페이지 (게시물 섹션)                               |
 | :-----------------------------------------------------------------------------------: |
@@ -211,7 +221,7 @@
 
 |  이름  |   역할    |                                                                                                                          개발 내용                                                                                                                           |
 | :----: | :-------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| 이주현 |   기획    |                                                                                                          스토리보드 설계<br />BM 기획<br /> 로고 디자인<br />                                                                                                 |
+| 이주현 |   기획    |                                                                                                     스토리보드 설계<br />BM 기획<br /> 로고 디자인<br />                                                                                                     |
 | 윤은비 | Designer  |                                                                                                        UI/UX 설계<br />Figma를 통한 와이어프레임 작성                                                                                                        |
 | 김수영 | Front-end |                                                             로그인 및 회원가입 기능 개발<br />세계지도 페이지 타임존 기능 개발<br />랭킹 페이지 마크업 및 스타일링 작업<br />AWS VM 배포 및 관리                                                             |
 | 박정환 | Front-end | 메인 페이지 (게시물 섹션) 마크업 및 스타일링 작업<br />메인 페이지 (베스트 게시물 섹션) 마크업 및 스타일링 작업<br />마이페이지 마크업 및 스타일링 작업<br />로그인 및 회원가입 모달 마크업 및 스타일링 작업<br />게시물 업로드 모달 마크업 및 스타일링 작업 |
